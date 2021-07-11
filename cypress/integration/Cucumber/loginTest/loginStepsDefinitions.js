@@ -1,0 +1,103 @@
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
+
+import HomePage from '../../../support/PageObjects/HomePage'
+import SignInPage from "../../../support/PageObjects/SignInPage";
+import NewAccountPage from "../../../support/PageObjects/NewAccountPage";
+import MyAccountMenu from "../../../support/PageObjects/MyAccountMenu";
+import SubscriptionsPage from "../../../support/PageObjects/SubscriptionsPage";
+
+
+const homePage = new HomePage()
+const signInPage = new SignInPage()
+const myAccountMenu = new MyAccountMenu()
+const newAccountPage = new NewAccountPage()
+const subscriptionsPage = new SubscriptionsPage()
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
+
+let memberName
+
+
+Given('I am at the Login page', () => {
+    //cy.visit("https://clone.youngliving.com/us/en/").wait(2000)
+    cy.visit(Cypress.env('url') + "/us/en/")
+    homePage.getSignInLink().click()
+    signInPage.getSignInTitleText().should('have.text', 'Sign In')
+})
+
+When('I fill in the account email field with the value {string}', (user) => {
+    signInPage.getUserNameText().type(user)
+})
+
+And('I fill in the password field with the value {string}', (password) => {
+    signInPage.getPasswordText().type(password)
+})
+
+And('I hit the login button', () => {
+    signInPage.getLoginButton().click()
+})
+
+Then('I should be at the home page', () => {
+    homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
+    myAccountMenu.getWelcomeText().should('contain', 'Welcome')
+})
+
+Then('the error message {string} is displayed', (error_message) => {
+    signInPage.getErrorMessageText().should('contain', error_message)
+})
+
+Given('I am at the Become a Member page', () => {
+    cy.url().then(url => {
+        const currentURL = url;
+        cy.visit(currentURL + '%26initial_screen%3Dsignup').wait(2000)
+    });
+
+    newAccountPage.getCreateAccountTitleText().should('have.text', 'Create Your Account')
+
+    When('I fill out the account creating form', (dataTable) => {
+
+        const firstName = dataTable.rows()[0][0]
+        const lastName = dataTable.rows()[0][1]
+        const phoneNumber = dataTable.rows()[0][2]
+        const password = dataTable.rows()[0][3]
+
+        memberName = firstName + " " +lastName
+
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = ("0" + (date.getMonth() + 1)).slice(-2)
+        const day = ("0" + (date.getDate())).slice(-2)
+        const hour = ("0" + (date.getHours())).slice(-2)
+        const minute = ("0" + (date.getMinutes())).slice(-2)
+        const second = ("0" + (date.getSeconds())).slice(-2)
+        const email = year + month + day + hour + minute + second + "@test.com"
+
+        newAccountPage.getEmailText().type(email)
+        newAccountPage.getFirstNameText().type(firstName)
+        newAccountPage.getLastNameText().type(lastName)
+        newAccountPage.getPhoneNumberText().type(phoneNumber)
+        newAccountPage.getPasswordText().type(password)
+        newAccountPage.getConfirmPasswordText().type(password)
+    })
+
+    And('I submit the form', () => {
+        newAccountPage.getAcceptanceCheckBox().check({ force: true }).should('be.checked')
+        newAccountPage.getCreateAccountButton().click()
+    })
+
+    And('get his Member Number', () => {
+
+        myAccountMenu.getSubcriptionsLink().click()
+        subscriptionsPage.getAccountName().should('contain', memberName)
+
+        subscriptionsPage.getAccountID().then(function($el){
+            cy.log("Member Number: " + $el.text())
+        })
+    })
+
+    When('I Loggin in Storefront with valid credentials {string} and {string}', (user,password) => {
+        cy.loginStorefront(user,password);
+    })
+})

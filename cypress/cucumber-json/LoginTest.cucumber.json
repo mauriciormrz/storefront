@@ -1,0 +1,239 @@
+[
+  {
+    "description": "  As a customer,\n  I want to login with email and password,\n  So that I can use the app.",
+    "keyword": "Feature",
+    "name": "Sign In",
+    "line": 1,
+    "id": "sign-in",
+    "tags": [],
+    "uri": "LoginTest.feature",
+    "elements": [
+      {
+        "id": "sign-in;loggin-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Loggin with valid credentials",
+        "tags": [
+          {
+            "name": "@Smoke",
+            "line": 9
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 9517000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I fill in the account email field with the value \"29014961\"",
+            "result": {
+              "status": "passed",
+              "duration": 290000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I fill in the password field with the value \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 294000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I hit the login button",
+            "result": {
+              "status": "passed",
+              "duration": 129000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I should be at the home page",
+            "result": {
+              "status": "passed",
+              "duration": 6047000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;loggin-with-invalid-credentials",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Loggin with invalid credentials",
+        "tags": [
+          {
+            "name": "@Smoke",
+            "line": 20
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 7428000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "I fill in the account email field with the value \"5010\"",
+            "result": {
+              "status": "passed",
+              "duration": 234000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I fill in the password field with the value \"Password\"",
+            "result": {
+              "status": "passed",
+              "duration": 287000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I hit the login button",
+            "result": {
+              "status": "passed",
+              "duration": 126000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the error message \"Incorrect username or password\" is displayed",
+            "result": {
+              "status": "passed",
+              "duration": 564000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "sign-in;loggin-by-becoming-a-new-member",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Loggin by becoming a new member",
+        "tags": [
+          {
+            "name": "@Integration",
+            "line": 27
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 6163000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 29,
+            "name": "I am at the Become a Member page",
+            "result": {
+              "status": "passed",
+              "duration": 2482000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "first_name",
+                      "last_name",
+                      "phone_number",
+                      "paswword"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Mauricio",
+                      "Ramirez",
+                      "3003206240",
+                      "Password1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 30,
+            "name": "I fill out the account creating form",
+            "result": {
+              "status": "passed",
+              "duration": 1942000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I submit the form",
+            "result": {
+              "status": "passed",
+              "duration": 243000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "I should be at the home page",
+            "result": {
+              "status": "passed",
+              "duration": 4122000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "get his Member Number",
+            "result": {
+              "status": "passed",
+              "duration": 1701000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

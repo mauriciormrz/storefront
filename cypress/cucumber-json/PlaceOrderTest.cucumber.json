@@ -1,0 +1,106 @@
+[
+  {
+    "description": "    As a YL customer,\n    I want to add some items to the shopping cart,\n    So I can place a one-time order.",
+    "keyword": "Feature",
+    "name": "Place an order",
+    "line": 1,
+    "id": "place-an-order",
+    "tags": [],
+    "uri": "PlaceOrderTest.feature",
+    "elements": [
+      {
+        "id": "place-an-order;place-an-order-using-only-credit-card,-account-credit-or-paypal",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Place an order using only Credit Card, Account Credit or PayPal",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 5778000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I log in to the Storefront with user \"29014961\"  and password \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 4160000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "sku",
+                      "item",
+                      "quantity",
+                      "price",
+                      "pv"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3500",
+                      "Basil Essential Oil",
+                      "2",
+                      "26.50",
+                      "26.5"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I add the item to the shopping cart",
+            "result": {
+              "status": "passed",
+              "duration": 6140000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I fill the checkout form with \"No\" and \"PayPal Account\"",
+            "result": {
+              "status": "passed",
+              "duration": 3321000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "I submit the order with \"Yes\"",
+            "result": {
+              "status": "passed",
+              "duration": 2375000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
+            "result": {
+              "status": "passed",
+              "duration": 2604000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
