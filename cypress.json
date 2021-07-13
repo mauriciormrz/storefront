@@ -2,7 +2,7 @@
   "scrollBehavior": false,
   "defaultCommandTimeout": 4000,
   "env": {
-    "url": "https://ext5.youngliving.com"
+    "url": "https://clone.youngliving.com"
   },
   "viewportWidth": 1280,
   "viewportHeight": 1280,

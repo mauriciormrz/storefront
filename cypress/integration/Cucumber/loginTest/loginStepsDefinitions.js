@@ -27,6 +27,7 @@ Given('I am at the Login page', () => {
     signInPage.getSignInTitleText().should('have.text', 'Sign In')
 })
 
+
 When('I fill in the account email field with the value {string}', (user) => {
     signInPage.getUserNameText().type(user)
 })
@@ -40,7 +41,8 @@ And('I hit the login button', () => {
 })
 
 Then('I should be at the home page', () => {
-    homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
+    //homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
+    homePage.getMyAccountLink().should('be.visible').should('have.text', 'my Account').dblclick()
     myAccountMenu.getWelcomeText().should('contain', 'Welcome')
 })
 
@@ -50,54 +52,56 @@ Then('the error message {string} is displayed', (error_message) => {
 
 Given('I am at the Become a Member page', () => {
     cy.url().then(url => {
-        const currentURL = url;
+        let currentURL = url;
+        currentURL = currentURL.replace('%26initial_screen%3Dlogin', '')
         cy.visit(currentURL + '%26initial_screen%3Dsignup').wait(2000)
     });
-
     newAccountPage.getCreateAccountTitleText().should('have.text', 'Create Your Account')
+})
 
-    When('I fill out the account creating form', (dataTable) => {
 
-        const firstName = dataTable.rows()[0][0]
-        const lastName = dataTable.rows()[0][1]
-        const phoneNumber = dataTable.rows()[0][2]
-        const password = dataTable.rows()[0][3]
+When('I fill out the account creating form', (dataTable) => {
 
-        memberName = firstName + " " +lastName
+    const firstName = dataTable.rows()[0][0]
+    const lastName = dataTable.rows()[0][1]
+    const phoneNumber = dataTable.rows()[0][2]
+    const password = dataTable.rows()[0][3]
 
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = ("0" + (date.getMonth() + 1)).slice(-2)
-        const day = ("0" + (date.getDate())).slice(-2)
-        const hour = ("0" + (date.getHours())).slice(-2)
-        const minute = ("0" + (date.getMinutes())).slice(-2)
-        const second = ("0" + (date.getSeconds())).slice(-2)
-        const email = year + month + day + hour + minute + second + "@test.com"
+    memberName = firstName + " " + lastName
 
-        newAccountPage.getEmailText().type(email)
-        newAccountPage.getFirstNameText().type(firstName)
-        newAccountPage.getLastNameText().type(lastName)
-        newAccountPage.getPhoneNumberText().type(phoneNumber)
-        newAccountPage.getPasswordText().type(password)
-        newAccountPage.getConfirmPasswordText().type(password)
-    })
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = ("0" + (date.getMonth() + 1)).slice(-2)
+    const day = ("0" + (date.getDate())).slice(-2)
+    const hour = ("0" + (date.getHours())).slice(-2)
+    const minute = ("0" + (date.getMinutes())).slice(-2)
+    const second = ("0" + (date.getSeconds())).slice(-2)
+    const email = year + month + day + hour + minute + second + "@test.com"
 
-    And('I submit the form', () => {
-        newAccountPage.getAcceptanceCheckBox().check({ force: true }).should('be.checked')
-        newAccountPage.getCreateAccountButton().click()
-    })
+    newAccountPage.getEmailText().type(email)
+    newAccountPage.getFirstNameText().type(firstName)
+    newAccountPage.getLastNameText().type(lastName)
+    newAccountPage.getPhoneNumberText().type(phoneNumber)
+    newAccountPage.getPasswordText().type(password)
+    newAccountPage.getConfirmPasswordText().type(password)
+})
 
-    And('get his Member Number', () => {
+And('I submit the form', () => {
+    newAccountPage.getAcceptanceCheckBox().check({ force: true }).should('be.checked')
+    newAccountPage.getCreateAccountButton().click()
+})
 
-        myAccountMenu.getSubcriptionsLink().click()
-        subscriptionsPage.getAccountName().should('contain', memberName)
+And('get his Member Number', () => {
 
-        subscriptionsPage.getAccountID().then(function($el){
-            cy.log("Member Number: " + $el.text())
-        })
-    })
+    myAccountMenu.getSubcriptionsLink().click()
+    subscriptionsPage.getAccountName().should('contain', memberName)
 
-    When('I Loggin in Storefront with valid credentials {string} and {string}', (user,password) => {
-        cy.loginStorefront(user,password);
+    subscriptionsPage.getAccountID().then(function ($el) {
+        cy.log("Member Number: " + $el.text())
     })
 })
+
+When('I Loggin in Storefront with valid credentials {string} and {string}', (user, password) => {
+    cy.loginStorefront(user, password);
+})
+

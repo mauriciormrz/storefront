@@ -23,17 +23,17 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 5778000000
+              "duration": 8362000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 8,
-            "name": "I log in to the Storefront with user \"29014961\"  and password \"Password1\"",
+            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 4160000000
+              "duration": 4545000000
             }
           },
           {
@@ -66,17 +66,17 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 6140000000
+              "duration": 8159000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 15,
-            "name": "I fill the checkout form with \"No\" and \"PayPal Account\"",
+            "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal Account\"",
             "result": {
               "status": "passed",
-              "duration": 3321000000
+              "duration": 8150000000
             }
           },
           {
@@ -86,7 +86,7 @@
             "name": "I submit the order with \"Yes\"",
             "result": {
               "status": "passed",
-              "duration": 2375000000
+              "duration": 2492000000
             }
           },
           {
@@ -96,7 +96,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 2604000000
+              "duration": 3318000000
             }
           }
         ]

@@ -28,17 +28,17 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 9517000000
+              "duration": 7274000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 11,
-            "name": "I fill in the account email field with the value \"29014961\"",
+            "name": "I fill in the account email field with the value \"5010\"",
             "result": {
               "status": "passed",
-              "duration": 290000000
+              "duration": 243000000
             }
           },
           {
@@ -48,7 +48,7 @@
             "name": "I fill in the password field with the value \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 294000000
+              "duration": 303000000
             }
           },
           {
@@ -58,7 +58,7 @@
             "name": "I hit the login button",
             "result": {
               "status": "passed",
-              "duration": 129000000
+              "duration": 127000000
             }
           },
           {
@@ -68,7 +68,7 @@
             "name": "I should be at the home page",
             "result": {
               "status": "passed",
-              "duration": 6047000000
+              "duration": 3863000000
             }
           }
         ]
@@ -93,27 +93,27 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 7428000000
+              "duration": 6891000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 22,
-            "name": "I fill in the account email field with the value \"5010\"",
+            "name": "I fill in the account email field with the value \"29014961\"",
             "result": {
               "status": "passed",
-              "duration": 234000000
+              "duration": 339000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 23,
-            "name": "I fill in the password field with the value \"Password\"",
+            "name": "I fill in the password field with the value \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 287000000
+              "duration": 312000000
             }
           },
           {
@@ -123,7 +123,7 @@
             "name": "I hit the login button",
             "result": {
               "status": "passed",
-              "duration": 126000000
+              "duration": 142000000
             }
           },
           {
@@ -133,7 +133,7 @@
             "name": "the error message \"Incorrect username or password\" is displayed",
             "result": {
               "status": "passed",
-              "duration": 564000000
+              "duration": 433000000
             }
           }
         ]
@@ -158,7 +158,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 6163000000
+              "duration": 5372000000
             }
           },
           {
@@ -168,7 +168,7 @@
             "name": "I am at the Become a Member page",
             "result": {
               "status": "passed",
-              "duration": 2482000000
+              "duration": 2626000000
             }
           },
           {
@@ -199,7 +199,7 @@
             "name": "I fill out the account creating form",
             "result": {
               "status": "passed",
-              "duration": 1942000000
+              "duration": 2061000000
             }
           },
           {
@@ -209,7 +209,7 @@
             "name": "I submit the form",
             "result": {
               "status": "passed",
-              "duration": 243000000
+              "duration": 298000000
             }
           },
           {
@@ -219,7 +219,7 @@
             "name": "I should be at the home page",
             "result": {
               "status": "passed",
-              "duration": 4122000000
+              "duration": 4613000000
             }
           },
           {
@@ -229,7 +229,7 @@
             "name": "get his Member Number",
             "result": {
               "status": "passed",
-              "duration": 1701000000
+              "duration": 2963000000
             }
           }
         ]

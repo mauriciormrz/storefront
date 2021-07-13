@@ -14,13 +14,13 @@ Feature: Sign In
     Then I should be at the home page
 
     Examples:
-      | user       | password    |
-      | "29014961" | "Password1" |
+      | user   | password    |
+      | "5010" | "Password1" |
 
   @Smoke
   Scenario: Loggin with invalid credentials
-    When I fill in the account email field with the value "5010"
-    And I fill in the password field with the value "Password"
+    When I fill in the account email field with the value "29014961"
+    And I fill in the password field with the value "Password1"
     And I hit the login button
     Then the error message "Incorrect username or password" is displayed
 

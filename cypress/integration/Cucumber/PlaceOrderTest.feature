@@ -5,7 +5,7 @@ Feature: Place an order
 
     Background:
         Given I am at the Login page
-        And I log in to the Storefront with user "29014961"  and password "Password1"
+        And I log in to the Storefront with user "5010"  and password "Password1"
 
     Scenario Outline: Place an order using only Credit Card, Account Credit or PayPal
         When I add the item to the shopping cart
@@ -17,14 +17,12 @@ Feature: Place an order
         And I should see the order confirmation "THANK YOU FOR SHOPPING YOUNG LIVING."
 
         Examples:
-            | shipping_method | payment_method   | donation |
-            | "No"            | "PayPal Account" | "Yes"    |
-#| "Lehi, UT Will Call Pick-up" | "PayPal Account" | "Yes"    |
-#| "Expedite"                   | "Card ending with" | "No"     |
-#| "Standar"                    | "Account ending in" | "No"     |
+            | shipping_method              | payment_method      | donation |
+            | "Lehi, UT Will Call Pick-up" | "PayPal Account"    | "Yes"    |
+            #| "Expedite"                   | "Card ending with"  | "No"     |
+            #| "Standar"                    | "Account ending in" | "No"     |
 
 #1056463
-
 #Users LP
 #4050735
 #16105084
