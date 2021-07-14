@@ -15,6 +15,7 @@ class CheckOutPage {
     }
 
     getShippingMethodChangeButton() {
+        cy.wait(2000)
         return cy.get('[data-testid=qa-shipping-method-title] .change-button')
     }
 

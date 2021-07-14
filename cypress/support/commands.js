@@ -34,7 +34,7 @@ Cypress.Commands.add('loginStorefront',(email,password)=>{
 
 Cypress.Commands.add('addItemToShoppingCart',(sku,item,quantity)=>{
     cy.get('[data-testid=qa-search-input]').type(sku).type('{enter}')
-    cy.wait(1000)
+    cy.wait(2000)
     cy.get('[data-testid=qa-product-name]').should('contain', item)
     cy.get("[data-testid=qa-product-quantity]").clear().type(quantity)
     cy.get('[data-testid=qa-addcart]').click()

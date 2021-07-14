@@ -7,7 +7,7 @@ class HomePage
     }
 
     getMyAccountLink() {
-        cy.wait(2000)
+        cy.wait(3000)
         return cy.get('#dropdown-cutom> p')    }
 
 

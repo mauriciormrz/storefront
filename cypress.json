@@ -1,6 +1,6 @@
 {
   "scrollBehavior": false,
-  "defaultCommandTimeout": 4000,
+  "defaultCommandTimeout": 7000,
   "env": {
     "url": "https://clone.youngliving.com"
   },

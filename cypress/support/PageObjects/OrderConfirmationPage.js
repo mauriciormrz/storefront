@@ -2,6 +2,7 @@ class OrderConfirmationPage
 {
 
     getCongratsText() {
+        cy.wait(2000)
         return cy.get('.order-congrats-text')
     }    
 

@@ -23,7 +23,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 8362000000
+              "duration": 13088000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 4545000000
+              "duration": 8917000000
             }
           },
           {
@@ -66,7 +66,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 8159000000
+              "duration": 15931000000
             }
           },
           {
@@ -76,7 +76,7 @@
             "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal Account\"",
             "result": {
               "status": "passed",
-              "duration": 8150000000
+              "duration": 13780000000
             }
           },
           {
@@ -86,7 +86,7 @@
             "name": "I submit the order with \"Yes\"",
             "result": {
               "status": "passed",
-              "duration": 2492000000
+              "duration": 3882000000
             }
           },
           {
@@ -96,7 +96,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3318000000
+              "duration": 4801000000
             }
           }
         ]

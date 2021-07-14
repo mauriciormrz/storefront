@@ -41,8 +41,7 @@ And('I hit the login button', () => {
 })
 
 Then('I should be at the home page', () => {
-    //homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
-    homePage.getMyAccountLink().should('be.visible').should('have.text', 'my Account').dblclick()
+    homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
     myAccountMenu.getWelcomeText().should('contain', 'Welcome')
 })
 
@@ -62,28 +61,31 @@ Given('I am at the Become a Member page', () => {
 
 When('I fill out the account creating form', (dataTable) => {
 
-    const firstName = dataTable.rows()[0][0]
-    const lastName = dataTable.rows()[0][1]
-    const phoneNumber = dataTable.rows()[0][2]
-    const password = dataTable.rows()[0][3]
+    //const firstName = dataTable.rows()[0][0]
+    //const lastName = dataTable.rows()[0][1]
+    //const phoneNumber = dataTable.rows()[0][2]
+    //const password = dataTable.rows()[0][3]
 
-    memberName = firstName + " " + lastName
+    const arregloHashes = dataTable.hashes()[0]
+    const { first_name, last_name, phone_number, password } = arregloHashes
 
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = ("0" + (date.getMonth() + 1)).slice(-2)
-    const day = ("0" + (date.getDate())).slice(-2)
-    const hour = ("0" + (date.getHours())).slice(-2)
-    const minute = ("0" + (date.getMinutes())).slice(-2)
-    const second = ("0" + (date.getSeconds())).slice(-2)
-    const email = year + month + day + hour + minute + second + "@test.com"
+     memberName = first_name + " " + last_name
 
-    newAccountPage.getEmailText().type(email)
-    newAccountPage.getFirstNameText().type(firstName)
-    newAccountPage.getLastNameText().type(lastName)
-    newAccountPage.getPhoneNumberText().type(phoneNumber)
-    newAccountPage.getPasswordText().type(password)
-    newAccountPage.getConfirmPasswordText().type(password)
+     const date = new Date();
+     const year = date.getFullYear();
+     const month = ("0" + (date.getMonth() + 1)).slice(-2)
+     const day = ("0" + (date.getDate())).slice(-2)
+     const hour = ("0" + (date.getHours())).slice(-2)
+     const minute = ("0" + (date.getMinutes())).slice(-2)
+     const second = ("0" + (date.getSeconds())).slice(-2)
+     const email = year + month + day + hour + minute + second + "@test.com"
+
+     newAccountPage.getEmailText().type(email)
+     newAccountPage.getFirstNameText().type(first_name)
+     newAccountPage.getLastNameText().type(last_name)
+     newAccountPage.getPhoneNumberText().type(phone_number)
+     newAccountPage.getPasswordText().type(password)
+     newAccountPage.getConfirmPasswordText().type(password)
 })
 
 And('I submit the form', () => {

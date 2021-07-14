@@ -11,7 +11,8 @@ Feature: Place an order
         When I add the item to the shopping cart
             | sku  | item                | quantity | price | pv   |
             | 3500 | Basil Essential Oil | 2        | 26.50 | 26.5 |
-        #| 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
+           #| 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
+
         And I fill the checkout form with <shipping_method> and <payment_method>
         Then I submit the order with <donation>
         And I should see the order confirmation "THANK YOU FOR SHOPPING YOUNG LIVING."

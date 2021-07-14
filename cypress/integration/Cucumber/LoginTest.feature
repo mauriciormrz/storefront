@@ -12,7 +12,7 @@ Feature: Sign In
     And I fill in the password field with the value <password>
     And I hit the login button
     Then I should be at the home page
-
+  
     Examples:
       | user   | password    |
       | "5010" | "Password1" |
@@ -28,10 +28,11 @@ Feature: Sign In
   Scenario: Loggin by becoming a new member
     Given I am at the Become a Member page
     When I fill out the account creating form
-      | first_name | last_name | phone_number | paswword  |
+      | first_name | last_name | phone_number | password  |
       | Mauricio   | Ramirez   | 3003206240   | Password1 |
-    And I submit the form
-    Then I should be at the home page
-    And get his Member Number
+
+And I submit the form
+Then I should be at the home page
+And get his Member Number
 
 
