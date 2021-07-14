@@ -32,7 +32,7 @@ Cypress.Commands.add('loginStorefront',(email,password)=>{
     cy.get('#dropdown-cutom> p').should('have.text', 'my Account')
 })
 
-Cypress.Commands.add('addItemToShoppingCart',(sku,item,quantity)=>{
+Cypress.Commands.add('addItemToShoppingCart',({sku,item,quantity})=>{
     cy.get('[data-testid=qa-search-input]').type(sku).type('{enter}')
     cy.wait(2000)
     cy.get('[data-testid=qa-product-name]').should('contain', item)

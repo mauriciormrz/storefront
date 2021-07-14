@@ -21,9 +21,8 @@ let memberName
 
 
 Given('I am at the Login page', () => {
-    //cy.visit("https://clone.youngliving.com/us/en/").wait(2000)
-    cy.visit(Cypress.env('url') + "/us/en/")
-    homePage.getSignInLink().click()
+    cy.visit(Cypress.env('url') + "/us/en/").wait(2000)
+    homePage.getDropDownLink('Sign In').click()
     signInPage.getSignInTitleText().should('have.text', 'Sign In')
 })
 
@@ -41,7 +40,8 @@ And('I hit the login button', () => {
 })
 
 Then('I should be at the home page', () => {
-    homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
+    //homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
+    homePage.getDropDownLink('my Account').dblclick()
     myAccountMenu.getWelcomeText().should('contain', 'Welcome')
 })
 
@@ -60,11 +60,6 @@ Given('I am at the Become a Member page', () => {
 
 
 When('I fill out the account creating form', (dataTable) => {
-
-    //const firstName = dataTable.rows()[0][0]
-    //const lastName = dataTable.rows()[0][1]
-    //const phoneNumber = dataTable.rows()[0][2]
-    //const password = dataTable.rows()[0][3]
 
     const arregloHashes = dataTable.hashes()[0]
     const { first_name, last_name, phone_number, password } = arregloHashes

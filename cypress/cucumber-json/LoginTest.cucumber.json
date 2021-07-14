@@ -28,7 +28,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 8979000000
+              "duration": 7545000000
             }
           },
           {
@@ -38,7 +38,7 @@
             "name": "I fill in the account email field with the value \"5010\"",
             "result": {
               "status": "passed",
-              "duration": 221000000
+              "duration": 261000000
             }
           },
           {
@@ -48,7 +48,7 @@
             "name": "I fill in the password field with the value \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 280000000
+              "duration": 316000000
             }
           },
           {
@@ -58,7 +58,7 @@
             "name": "I hit the login button",
             "result": {
               "status": "passed",
-              "duration": 113000000
+              "duration": 147000000
             }
           },
           {
@@ -68,7 +68,7 @@
             "name": "I should be at the home page",
             "result": {
               "status": "passed",
-              "duration": 4635000000
+              "duration": 4831000000
             }
           }
         ]
@@ -93,7 +93,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 6806000000
+              "duration": 7317000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "I fill in the account email field with the value \"29014961\"",
             "result": {
               "status": "passed",
-              "duration": 301000000
+              "duration": 347000000
             }
           },
           {
@@ -113,7 +113,7 @@
             "name": "I fill in the password field with the value \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 318000000
+              "duration": 329000000
             }
           },
           {
@@ -123,7 +123,7 @@
             "name": "I hit the login button",
             "result": {
               "status": "passed",
-              "duration": 126000000
+              "duration": 157000000
             }
           },
           {
@@ -133,7 +133,7 @@
             "name": "the error message \"Incorrect username or password\" is displayed",
             "result": {
               "status": "passed",
-              "duration": 635000000
+              "duration": 495000000
             }
           }
         ]
@@ -158,7 +158,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 5521000000
+              "duration": 5651000000
             }
           },
           {
@@ -168,7 +168,7 @@
             "name": "I am at the Become a Member page",
             "result": {
               "status": "passed",
-              "duration": 2735000000
+              "duration": 2671000000
             }
           },
           {
@@ -199,7 +199,7 @@
             "name": "I fill out the account creating form",
             "result": {
               "status": "passed",
-              "duration": 1961000000
+              "duration": 2103000000
             }
           },
           {
@@ -209,7 +209,7 @@
             "name": "I submit the form",
             "result": {
               "status": "passed",
-              "duration": 269000000
+              "duration": 309000000
             }
           },
           {
@@ -219,7 +219,7 @@
             "name": "I should be at the home page",
             "result": {
               "status": "passed",
-              "duration": 4418000000
+              "duration": 4354000000
             }
           },
           {
@@ -229,7 +229,7 @@
             "name": "get his Member Number",
             "result": {
               "status": "passed",
-              "duration": 1769000000
+              "duration": 2948000000
             }
           }
         ]

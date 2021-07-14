@@ -1,14 +1,9 @@
 class HomePage 
 {
 
-    getSignInLink() {
-        cy.wait(2000)
-        return cy.get('.menu-title')
+    getDropDownLink(option) { 
+        return cy.xpath("//p[contains(text(),'" + option + "')]")  
     }
-
-    getMyAccountLink() {
-        cy.wait(3000)
-        return cy.get('#dropdown-cutom> p')    }
 
 
     getSearchInput() {

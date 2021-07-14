@@ -17,8 +17,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 });
 
 Given('I am at the Login page', () => {
-    cy.visit(Cypress.env('url') + "/us/en/")
-    homePage.getSignInLink().click()
+    cy.visit(Cypress.env('url') + "/us/en/").wait(2000)
+    homePage.getDropDownLink('Sign In').click()
     signInPage.getSignInTitleText().should('be.visible').should('have.text', 'Sign In')
 })
 
@@ -27,36 +27,13 @@ And('I log in to the Storefront with user {string}  and password {string}', (use
 })
 
 When('I add the item to the shopping cart', (dataTable) => {
-
-    let sku
-    let item
-    let quantity
-    let price
-    let pv
-
-    dataTable.hashes().forEach(elem => {
-        for (let key in elem) {
-
-            switch (key) {
-                case 'sku': sku = elem[key]
-                    break
-                case 'item': item = elem[key]
-                    break
-                case 'quantity': quantity = elem[key]
-                    break
-                case 'price': price = elem[key]
-                    break
-                case 'pv': pv = elem[key]
-                    break
-            }
-        }
-        cy.addItemToShoppingCart(sku, item, quantity)
+    dataTable.hashes().forEach((elem) => {
+        cy.addItemToShoppingCart(elem)
     });
     viewCartpage.getCheckOutButton().click()
 })
 
 And('I fill the checkout form with {string} and {string}', (shipping_method, payment_method) => {
-
     if (shipping_method != "No") {
         checkoutPage.getShippingMethodChangeButton().click()
         checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
@@ -67,8 +44,7 @@ And('I fill the checkout form with {string} and {string}', (shipping_method, pay
     checkoutPage.getPaymentMethodContinueButton().click()
 })
 
-Then('I submit the order with {string}', (donation) => {
-
+Then('I submit the order with donation {string}', (donation) => {
     if (donation == "Yes") {
         checkoutPage.getDonationCheckBox().check({ force: true }).should('be.checked')
     }
