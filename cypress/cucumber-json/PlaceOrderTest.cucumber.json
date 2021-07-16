@@ -9,10 +9,10 @@
     "uri": "PlaceOrderTest.feature",
     "elements": [
       {
-        "id": "place-an-order;place-an-order-using-only-credit-card,-account-credit-or-paypal",
+        "id": "place-an-order;place-an-order-using-only-cc,-sp-or-paypal",
         "keyword": "Scenario",
         "line": 23,
-        "name": "Place an order using only Credit Card, Account Credit or PayPal",
+        "name": "Place an order using only CC, SP or PayPal",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,7 +23,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 9207000000
+              "duration": 29007000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 4605000000
+              "duration": 5421000000
             }
           },
           {
@@ -71,7 +71,7 @@
                     "cells": [
                       "5203",
                       "Lavender Lip Balm",
-                      "3",
+                      "1",
                       "4.25",
                       "4.25"
                     ]
@@ -84,7 +84,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 21802000000
+              "duration": 23367000000
             }
           },
           {
@@ -94,7 +94,7 @@
             "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal Account\"",
             "result": {
               "status": "passed",
-              "duration": 8680000000
+              "duration": 7777000000
             }
           },
           {
@@ -104,7 +104,7 @@
             "name": "I submit the order with donation \"Yes\"",
             "result": {
               "status": "passed",
-              "duration": 2704000000
+              "duration": 2788000000
             }
           },
           {
@@ -114,16 +114,16 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3373000000
+              "duration": 3303000000
             }
           }
         ]
       },
       {
-        "id": "place-an-order;place-an-order-using-only-credit-card,-account-credit-or-paypal",
+        "id": "place-an-order;place-an-order-using-only-cc,-sp-or-paypal",
         "keyword": "Scenario",
         "line": 24,
-        "name": "Place an order using only Credit Card, Account Credit or PayPal",
+        "name": "Place an order using only CC, SP or PayPal",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -134,7 +134,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 7066000000
+              "duration": 24721000000
             }
           },
           {
@@ -144,7 +144,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 4308000000
+              "duration": 5092000000
             }
           },
           {
@@ -182,7 +182,7 @@
                     "cells": [
                       "5203",
                       "Lavender Lip Balm",
-                      "3",
+                      "1",
                       "4.25",
                       "4.25"
                     ]
@@ -195,7 +195,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 21031000000
+              "duration": 23794000000
             }
           },
           {
@@ -205,7 +205,7 @@
             "name": "I fill the checkout form with \"Expedite\" and \"Card ending with\"",
             "result": {
               "status": "passed",
-              "duration": 9136000000
+              "duration": 6021000000
             }
           },
           {
@@ -214,8 +214,8 @@
             "line": 18,
             "name": "I submit the order with donation \"No\"",
             "result": {
-              "status": "passed",
-              "duration": 2517000000
+              "status": "failed",
+              "error_message": "CypressError: Timed out retrying after 15050ms: `cy.click()` failed because this element is `disabled`:\n\n`<button data-testid=\"qa-submit-order\" disabled=\"\" type=\"button\" class=\"w-100 submit-order-button case-uppercase disable-submit-order btn btn-primary\">Submit</button>`\n\nFix this problem, or use `{force: true}` to disable error checking.\n    at $Cy.ensureNotDisabled (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:143947:24)\n    at runAllChecks (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:132605:14)\n    at retryActionability (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:132679:16)\nFrom previous event:\n    at tryFn (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:148807:21)\n    at whenStable (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:148845:12)\n    at https://clone.youngliving.com/__cypress/runner/cypress_runner.js:148337:16\nFrom previous event:\n    at $Cy.retry (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:148317:38)\n    at retryActionability (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:132682:19)\n    at https://clone.youngliving.com/__cypress/runner/cypress_runner.js:132686:12\nFrom previous event:\n    at Object.verify (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:132594:21)\n    at perform (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:134661:29)\nFrom previous event:\n    at mouseAction (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:134699:20)\n    at Context.click (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:134718:14)\n    at Context.<anonymous> (https://clone.youngliving.com/__cypress/runner/cypress_runner.js:153308:21)\nFrom Your Spec Code:\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/PlaceOrderTest.feature:98:39)\n    at Context.resolveAndRunStepDefinition (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/PlaceOrderTest.feature:10806:29)\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/PlaceOrderTest.feature:10138:35)"
             }
           },
           {
@@ -224,8 +224,115 @@
             "line": 19,
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "place-an-order;place-an-order-using-only-cc,-sp-or-paypal",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Place an order using only CC, SP or PayPal",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
               "status": "passed",
-              "duration": 3123000000
+              "duration": 26509000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 4523000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "sku",
+                      "item",
+                      "quantity",
+                      "price",
+                      "pv"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3500",
+                      "Basil Essential Oil",
+                      "2",
+                      "26.50",
+                      "26.5"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "5178",
+                      "Lip Balm - Grapefruit",
+                      "3",
+                      "4.50",
+                      "4.5"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "5203",
+                      "Lavender Lip Balm",
+                      "1",
+                      "4.25",
+                      "4.25"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I add the item to the shopping cart",
+            "result": {
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `[data-testid=qa-product-quantity]`, but never found it.\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/support/index.js:43:6)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I fill the checkout form with \"Standard\" and \"Account ending in\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "I submit the order with donation \"No\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
+            "result": {
+              "status": "skipped"
             }
           }
         ]

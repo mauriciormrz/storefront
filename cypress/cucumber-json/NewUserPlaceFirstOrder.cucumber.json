@@ -1,0 +1,104 @@
+[
+  {
+    "description": "    As a YL new customer,\n    I want to add some items to the shopping cart,\n    So I can place a one-time first order.",
+    "keyword": "Feature",
+    "name": "Place an order for the first time with a new user",
+    "line": 1,
+    "id": "place-an-order-for-the-first-time-with-a-new-user",
+    "tags": [],
+    "uri": "NewUserPlaceFirstOrder.feature",
+    "elements": [
+      {
+        "id": "place-an-order-for-the-first-time-with-a-new-user;loggin-by-becoming-a-new-member",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Loggin by becoming a new member",
+        "tags": [
+          {
+            "name": "@Integration",
+            "line": 9
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "undefined",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I am at the Become a Member page",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "first_name",
+                      "last_name",
+                      "phone_number",
+                      "password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Mauricio",
+                      "Ramirez",
+                      "3003206240",
+                      "Password1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I fill out the account creating form",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I submit the form",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "I should be at the home page",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "get his Member Number",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

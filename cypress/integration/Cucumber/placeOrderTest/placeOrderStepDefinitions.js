@@ -34,6 +34,10 @@ When('I add the item to the shopping cart', (dataTable) => {
 })
 
 And('I fill the checkout form with {string} and {string}', (shipping_method, payment_method) => {
+    
+    //checkoutPage.getShippingAddressChangeButton().click();
+    //checkoutPage.getShippingAddressContinueButton().click();
+    
     if (shipping_method != "No") {
         checkoutPage.getShippingMethodChangeButton().click()
         checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')

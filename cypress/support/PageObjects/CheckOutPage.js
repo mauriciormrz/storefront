@@ -10,12 +10,10 @@ class CheckOutPage {
     }
 
     getShippingMethodRadio(shipping_method) {
-        cy.wait(2000)
         return cy.get('[id*="' + shipping_method + '"]')
     }
 
     getShippingMethodChangeButton() {
-        cy.wait(2000)
         return cy.get('[data-testid=qa-shipping-method-title] .change-button')
     }
 
@@ -26,14 +24,15 @@ class CheckOutPage {
     getPaymentMethodRadio(payment_method) {
         switch (payment_method) {
             case 'Card ending with':
-                return cy.xpath("//*/span[contains(text(),'Expires')]/../../../../input")
+                return cy.xpath("(//*/span[contains(text(),'Expires')]/../../../../input)[1]")
             default:
-                return cy.xpath("//*/div[contains(text(),'" + payment_method + "')]/../../../../input")
+                return cy.xpath("(//*/div[contains(text(),'" + payment_method + "')]/../../../../input)[1]")
         }
     }
 
     getPaymentMethodContinueButton() {
-        return cy.xpath("//*/div/button[@type='submit'][contains(@class,'px-5 py-2 add-payment-continue')]")
+        //return cy.xpath("//*/div/button[@type='submit'][contains(@class,'px-5 py-2 add-payment-continue')]")
+        return cy.get("button.px-5.py-2.add-payment-continue.list-specific-continue.text-uppercase.btn.btn-primary");
     }
 
     getDonationCheckBox() {
@@ -41,9 +40,13 @@ class CheckOutPage {
     }
 
     getSubmitOrderButton() {
-        cy.wait(2000)
-        return cy.get('[data-testid=qa-submit-order]')
+        //return cy.get('[data-testid=qa-submit-order]');
+        //return cy.xpath("//button[contains(text(),'Submit')]");
+        //return cy.xpath("//*[@class='w-100 submit-order-button case-uppercase btn btn-primary']");
+        return cy.get('button.w-100.submit-order-button.case-uppercase.btn.btn-primary');
+
     }
 }
+
 
 export default CheckOutPage;

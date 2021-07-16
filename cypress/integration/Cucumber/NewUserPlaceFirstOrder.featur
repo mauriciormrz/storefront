@@ -1,0 +1,20 @@
+Feature: Place an order for the first time with a new user
+    As a YL new customer,
+    I want to add some items to the shopping cart,
+    So I can place a one-time first order.
+
+  Background:
+    Given I am at the Login page
+
+  @Integration
+  Scenario: Loggin by becoming a new member
+    Given I am at the Become a Member page
+    When I fill out the account creating form
+      | first_name | last_name | phone_number | password  |
+      | Mauricio   | Ramirez   | 3003206240   | Password1 |
+
+    And I submit the form
+    Then I should be at the home page
+    And get his Member Number
+
+

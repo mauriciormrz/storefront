@@ -29,7 +29,8 @@ Cypress.Commands.add('loginStorefront',(email,password)=>{
     cy.get('#loginPassword').type(password)
     cy.get('#login-btn').click()
     cy.wait(2000)
-    cy.get('#dropdown-cutom> p').should('have.text', 'my Account')
+    cy.xpath("//p[contains(text(),'my Account')]")
+    //cy.get('#dropdown-cutom> p').should('have.text', 'my Account')
 })
 
 Cypress.Commands.add('addItemToShoppingCart',({sku,item,quantity})=>{
@@ -40,3 +41,14 @@ Cypress.Commands.add('addItemToShoppingCart',({sku,item,quantity})=>{
     cy.get('[data-testid=qa-addcart]').click()
     cy.get('[data-testid=qa-cartcheckout]').click()
 })
+
+Cypress.Commands.add('ifExists', (selector)=> {
+    cy.document().then(($document) => {
+        const documentResult = $document.querySelectorAll(selector)
+        cy.log(documentResult)
+        if (documentResult.length) {
+            cy.log("it exists, do something")
+           return ("it exists, do something")
+        }
+      }) 
+ })

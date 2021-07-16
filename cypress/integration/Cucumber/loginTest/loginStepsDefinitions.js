@@ -66,13 +66,14 @@ When('I fill out the account creating form', (dataTable) => {
 
      memberName = first_name + " " + last_name
 
-     const date = new Date();
-     const year = date.getFullYear();
-     const month = ("0" + (date.getMonth() + 1)).slice(-2)
-     const day = ("0" + (date.getDate())).slice(-2)
-     const hour = ("0" + (date.getHours())).slice(-2)
-     const minute = ("0" + (date.getMinutes())).slice(-2)
-     const second = ("0" + (date.getSeconds())).slice(-2)
+     const today = new Date();
+     
+     const year = today.getFullYear();
+     const month = ("0" + (today.getMonth() + 1)).slice(-2)
+     const day = ("0" + (today.getDate())).slice(-2)
+     const hour = ("0" + (today.getHours())).slice(-2)
+     const minute = ("0" + (today.getMinutes())).slice(-2)
+     const second = ("0" + (today.getSeconds())).slice(-2)
      const email = year + month + day + hour + minute + second + "@test.com"
 
      newAccountPage.getEmailText().type(email)
@@ -90,11 +91,21 @@ And('I submit the form', () => {
 
 And('get his Member Number', () => {
 
-    myAccountMenu.getSubcriptionsLink().click()
-    subscriptionsPage.getAccountName().should('contain', memberName)
+    myAccountMenu.getSubcriptionsLink().click();
+    subscriptionsPage.getAccountName().should('contain', memberName);
 
-    subscriptionsPage.getAccountID().then(function ($el) {
-        cy.log("Member Number: " + $el.text())
+    //let message = cy.ifExists('.btn-outline-dark');
+    //cy.log('aqui');
+    //cy.log(Object.values(message)[0]);
+    //cy.log(Object.values(message)[1]);
+    //cy.log(Object.values(message)[2]);
+    //cy.log(Object.values(message)[3]);
+    //cy.log(Object.values(message)[4]);
+    //cy.log('aqui2');
+
+
+    subscriptionsPage.getAccountID().then( ($el)=> {
+        cy.log("Member Number: " + $el.text());
     })
 })
 
