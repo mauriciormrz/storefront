@@ -24,31 +24,43 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('loginStorefront',(email,password)=>{
-    cy.get('#loginUsername').type(email)
-    cy.get('#loginPassword').type(password)
-    cy.get('#login-btn').click()
-    cy.wait(2000)
-    cy.xpath("//p[contains(text(),'my Account')]")
-    //cy.get('#dropdown-cutom> p').should('have.text', 'my Account')
+import HomePage from './PageObjects/HomePage'
+import SignInPage from "./PageObjects/SignInPage";
+import ProductPage from "./PageObjects/ProductPage";
+
+
+const homePage = new HomePage();
+const signInPage = new SignInPage();
+const productPage = new ProductPage();
+
+
+Cypress.Commands.add('loginStorefront', (user, password) => {
+
+    signInPage.getUserNameText().type(user);
+    signInPage.getPasswordText().type(password);
+    signInPage.getLoginButton().click();
+
+    homePage.getDropDownLink('my Account').should('be.visible');
 })
 
-Cypress.Commands.add('addItemToShoppingCart',({sku,item,quantity})=>{
-    cy.get('[data-testid=qa-search-input]').type(sku).type('{enter}')
-    cy.wait(2000)
-    cy.get('[data-testid=qa-product-name]').should('contain', item)
-    cy.get("[data-testid=qa-product-quantity]").clear().type(quantity)
-    cy.get('[data-testid=qa-addcart]').click()
-    cy.get('[data-testid=qa-cartcheckout]').click()
+Cypress.Commands.add('addItemToShoppingCart', ({ sku, item, quantity }) => {
+
+    homePage.getSearchInput().type(sku).type('{enter}');
+
+    productPage.getProductNameText().should('contain', item);
+    productPage.getQuantityCtrl().clear().type(quantity);
+    productPage.getAddCartButton().click();
+
+    productPage.getViewCartButton().click();
 })
 
-Cypress.Commands.add('ifExists', (selector)=> {
+Cypress.Commands.add('ifExists', (selector) => {
     cy.document().then(($document) => {
         const documentResult = $document.querySelectorAll(selector)
         cy.log(documentResult)
         if (documentResult.length) {
             cy.log("it exists, do something")
-           return ("it exists, do something")
+            return ("it exists, do something")
         }
-      }) 
- })
+    })
+})

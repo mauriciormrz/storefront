@@ -14,39 +14,44 @@ class CheckOutPage {
     }
 
     getShippingMethodChangeButton() {
-        return cy.get('[data-testid=qa-shipping-method-title] .change-button')
+        return cy.get('[data-testid=qa-shipping-method-title] .change-button');
     }
 
     getShippingMethodContinueButton() {
-        return cy.get('[data-testid=qa-ship-methods-continue]')
+        //return cy.get('[data-testid=qa-ship-methods-continue]');
+        return cy.get('button[data-testid="qa-ship-methods-continue"][type="button"].px-5.py-2.shipping-method-continue.semi-solid-button.btn.btn-primary');
     }
 
+    getReferralIdContinueButton() {
+        
+        return cy.get('button[data-testid="qa-referral-code-continue"][type="submit"].px-5.py-2.referral-code-continue.semi-solid-button.text-uppercase.btn.btn-primary');
+    }
+
+
     getPaymentMethodRadio(payment_method) {
+
         switch (payment_method) {
             case 'Card ending with':
-                return cy.xpath("(//*/span[contains(text(),'Expires')]/../../../../input)[1]")
+                return cy.xpath("(//*/span[contains(text(),'Expires')]/../../../../input)[1]");
             default:
-                return cy.xpath("(//*/div[contains(text(),'" + payment_method + "')]/../../../../input)[1]")
+                return cy.xpath("(//*/div[contains(text(),'" + payment_method + "')]/../../../../input)[1]");
         }
     }
 
     getPaymentMethodContinueButton() {
-        //return cy.xpath("//*/div/button[@type='submit'][contains(@class,'px-5 py-2 add-payment-continue')]")
-        return cy.get("button.px-5.py-2.add-payment-continue.list-specific-continue.text-uppercase.btn.btn-primary");
+
+        return cy.get('button[type="submit"].px-5.py-2.add-payment-continue.list-specific-continue.text-uppercase.btn.btn-primary');
     }
 
     getDonationCheckBox() {
-        return cy.get('#donationCheckbox_1')
+
+        return cy.get('#donationCheckbox_1');
     }
 
     getSubmitOrderButton() {
-        //return cy.get('[data-testid=qa-submit-order]');
-        //return cy.xpath("//button[contains(text(),'Submit')]");
-        //return cy.xpath("//*[@class='w-100 submit-order-button case-uppercase btn btn-primary']");
-        return cy.get('button.w-100.submit-order-button.case-uppercase.btn.btn-primary');
 
+        return cy.get('button[data-testid="qa-submit-order"][type="button"].w-100.submit-order-button.case-uppercase.btn-primary'); 
     }
 }
-
 
 export default CheckOutPage;

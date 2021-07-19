@@ -5,13 +5,14 @@ Feature: Sign In
 
   Background:
     Given I am at the Login page
-
+     
   @Smoke
   Scenario Outline: Loggin with valid credentials
     When I fill in the account email field with the value "<user>"
     And I fill in the password field with the value "<password>"
     And I hit the login button
     Then I should be at the home page
+    And I logout
 
     Examples:
       | user | password  |
@@ -30,9 +31,7 @@ Feature: Sign In
     When I fill out the account creating form
       | first_name | last_name | phone_number | password  |
       | Mauricio   | Ramirez   | 3003206240   | Password1 |
-
+      | Andrea     | Cuervo    | 3003206240   | Password1 |
     And I submit the form
     Then I should be at the home page
     And get his Member Number
-
-

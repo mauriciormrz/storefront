@@ -9,8 +9,8 @@ class NewAccountPage {
     }
 
     getFirstNameText() {
-        //return cy.get('#firstName')
-        return cy.xpath("//input[@id='firstName']")
+        return cy.get('#firstName')
+        //return cy.xpath("//input[@id='firstName']")
     }
 
     getLastNameText() {
@@ -35,7 +35,8 @@ class NewAccountPage {
     }
 
     getCreateAccountButton() {
-        return cy.get('#create-account-btn')
+        
+        return cy.get('#create-account-btn');
     }
 
 

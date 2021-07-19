@@ -1,6 +1,6 @@
 {
   "scrollBehavior": false,
-  "defaultCommandTimeout": 15000,
+  "defaultCommandTimeout": 7000,
   "env": {
     "url": "https://clone.youngliving.com"
   },
@@ -8,8 +8,8 @@
   "viewportHeight": 1280,
   "testFiles": "**/*.feature",
   "retries": {
-    "runMode": 1,
-    "openMode": 1
+    "runMode": 2,
+    "openMode": 0
   },
   "projectId": "q8dfqr"
 }

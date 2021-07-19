@@ -5,13 +5,15 @@ import SignInPage from "../../../support/PageObjects/SignInPage";
 import NewAccountPage from "../../../support/PageObjects/NewAccountPage";
 import MyAccountMenu from "../../../support/PageObjects/MyAccountMenu";
 import SubscriptionsPage from "../../../support/PageObjects/SubscriptionsPage";
+import EndPage from '../../../support/PageObjects/EndPage';
 
 
-const homePage = new HomePage()
-const signInPage = new SignInPage()
-const myAccountMenu = new MyAccountMenu()
-const newAccountPage = new NewAccountPage()
-const subscriptionsPage = new SubscriptionsPage()
+const homePage = new HomePage();
+const signInPage = new SignInPage();
+const myAccountMenu = new MyAccountMenu();
+const newAccountPage = new NewAccountPage();
+const subscriptionsPage = new SubscriptionsPage();
+const endPage = new EndPage();
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -21,6 +23,7 @@ let memberName
 
 
 Given('I am at the Login page', () => {
+
     cy.visit(Cypress.env('url') + "/us/en/").wait(2000)
     homePage.getDropDownLink('Sign In').click()
     signInPage.getSignInTitleText().should('have.text', 'Sign In')
@@ -28,28 +31,40 @@ Given('I am at the Login page', () => {
 
 
 When('I fill in the account email field with the value {string}', (user) => {
-    signInPage.getUserNameText().type(user)
+
+    signInPage.getUserNameText().type(user);
 })
 
 And('I fill in the password field with the value {string}', (password) => {
-    signInPage.getPasswordText().type(password)
+
+    signInPage.getPasswordText().type(password);
 })
 
 And('I hit the login button', () => {
-    signInPage.getLoginButton().click()
+
+    signInPage.getLoginButton().click();
 })
 
 Then('I should be at the home page', () => {
-    //homePage.getMyAccountLink().should('have.text', 'my Account').dblclick()
+
     homePage.getDropDownLink('my Account').dblclick()
     myAccountMenu.getWelcomeText().should('contain', 'Welcome')
 })
 
+And('I logout', () => {
+
+    myAccountMenu.getSignOutLink().click();
+    endPage.getLogOutMessageText().should('be.visible');
+
+})
+
 Then('the error message {string} is displayed', (error_message) => {
+
     signInPage.getErrorMessageText().should('contain', error_message)
 })
 
 Given('I am at the Become a Member page', () => {
+
     cy.url().then(url => {
         let currentURL = url;
         currentURL = currentURL.replace('%26initial_screen%3Dlogin', '')
@@ -64,29 +79,30 @@ When('I fill out the account creating form', (dataTable) => {
     const arregloHashes = dataTable.hashes()[0]
     const { first_name, last_name, phone_number, password } = arregloHashes
 
-     memberName = first_name + " " + last_name
+    memberName = first_name + " " + last_name
 
-     const today = new Date();
-     
-     const year = today.getFullYear();
-     const month = ("0" + (today.getMonth() + 1)).slice(-2)
-     const day = ("0" + (today.getDate())).slice(-2)
-     const hour = ("0" + (today.getHours())).slice(-2)
-     const minute = ("0" + (today.getMinutes())).slice(-2)
-     const second = ("0" + (today.getSeconds())).slice(-2)
-     const email = year + month + day + hour + minute + second + "@test.com"
+    const today = new Date();
 
-     newAccountPage.getEmailText().type(email)
-     newAccountPage.getFirstNameText().type(first_name)
-     newAccountPage.getLastNameText().type(last_name)
-     newAccountPage.getPhoneNumberText().type(phone_number)
-     newAccountPage.getPasswordText().type(password)
-     newAccountPage.getConfirmPasswordText().type(password)
+    const year = today.getFullYear();
+    const month = ("0" + (today.getMonth() + 1)).slice(-2)
+    const day = ("0" + (today.getDate())).slice(-2)
+    const hour = ("0" + (today.getHours())).slice(-2)
+    const minute = ("0" + (today.getMinutes())).slice(-2)
+    const second = ("0" + (today.getSeconds())).slice(-2)
+    const email = year + month + day + hour + minute + second + "@test.com"
+
+    newAccountPage.getEmailText().type(email)
+    newAccountPage.getFirstNameText().type(first_name)
+    newAccountPage.getLastNameText().type(last_name)
+    newAccountPage.getPhoneNumberText().type(phone_number)
+    newAccountPage.getPasswordText().type(password)
+    newAccountPage.getConfirmPasswordText().type(password)
 })
 
 And('I submit the form', () => {
-    newAccountPage.getAcceptanceCheckBox().check({ force: true }).should('be.checked')
-    newAccountPage.getCreateAccountButton().click()
+
+    newAccountPage.getAcceptanceCheckBox().check({ force: true }).should('be.checked');
+    newAccountPage.getCreateAccountButton().click();
 })
 
 And('get his Member Number', () => {
@@ -103,8 +119,9 @@ And('get his Member Number', () => {
     //cy.log(Object.values(message)[4]);
     //cy.log('aqui2');
 
+    cy.get('button.btn.btn-sm.btn-outline-dark.yl_btn.shep-btn-light.shepherd-button').click();
+    subscriptionsPage.getAccountID().then(($el) => {
 
-    subscriptionsPage.getAccountID().then( ($el)=> {
         cy.log("Member Number: " + $el.text());
     })
 })
