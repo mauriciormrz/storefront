@@ -1,0 +1,103 @@
+[
+  {
+    "description": "  As a YL new customer,\n  I want to add some items to the shopping cart,\n  So I can place a one-time first order.",
+    "keyword": "Feature",
+    "name": "Place an order for the first time with a new user",
+    "line": 1,
+    "id": "place-an-order-for-the-first-time-with-a-new-user",
+    "tags": [],
+    "uri": "NewUserPlaceFirstOrderTest.feature",
+    "elements": [
+      {
+        "id": "place-an-order-for-the-first-time-with-a-new-user;place-a-one-time-order",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Place a one-time order",
+        "tags": [
+          {
+            "name": "@Integration",
+            "line": 10
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 13192000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I am a new user with \"Mauricio\", \"Ramirez\", \"3003206240\" and \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 5869000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "first_name",
+                      "last_name",
+                      "address",
+                      "city",
+                      "state",
+                      "country",
+                      "zipcode",
+                      "phone_number",
+                      "default_address"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Mauricio",
+                      "Ramirez",
+                      "1411 6th Ave",
+                      "New York",
+                      "New York",
+                      "US",
+                      "10019",
+                      "3003206240",
+                      "Yes"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Andrea",
+                      "Cuervo",
+                      "1538 w Sandal Dr",
+                      "Lehi",
+                      "Utah",
+                      "US",
+                      "84043",
+                      "3003206240",
+                      "No"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I add a new adddress",
+            "result": {
+              "status": "failed",
+              "duration": 50265000000,
+              "error_message": "AssertionError: Timed out retrying after 30000ms: Expected to find element: `:nth-child(6) > .d-flex > .account-menu-item-text-unselected`, but never found it.\n    at SideMenu.getAddressBookMenuOption (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewUserPlaceFirstOrderTest.feature:320:17)\n    at eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewUserPlaceFirstOrderTest.feature:90:18)\nat Array.forEach (<anonymous>)\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewUserPlaceFirstOrderTest.feature:80:22)\n    at Context.resolveAndRunStepDefinition (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewUserPlaceFirstOrderTest.feature:10786:29)\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewUserPlaceFirstOrderTest.feature:10118:35)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

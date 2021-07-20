@@ -31,7 +31,6 @@ Feature: Sign In
     When I fill out the account creating form
       | first_name | last_name | phone_number | password  |
       | Mauricio   | Ramirez   | 3003206240   | Password1 |
-      | Andrea     | Cuervo    | 3003206240   | Password1 |
     And I submit the form
     Then I should be at the home page
     And get his Member Number

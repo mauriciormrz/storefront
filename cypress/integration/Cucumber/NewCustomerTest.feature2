@@ -1,0 +1,33 @@
+Feature: Place an order for the first time with a new customer
+  As a YL new customer,
+  I want to add some items to the shopping cart,
+  So I can place a one-time first order.
+
+
+  Background:
+    Given I am at the Login page
+
+  @Integration
+  Scenario Outline: Place a one-time order
+    Given I am a new user with "<first_name>", "<last_name>", "<phone_number>" and "<password>"
+    And I add a new adddress
+      | first_name | last_name | address      | city     | state    | country | zipcode | phone_number | default_address |
+      | Mauricio   | Ramirez   | 1411 6th Ave | New York | New York | US      | 10019   | 3003206240   | Yes             |
+    #| Andrea     | Cuervo    | 1538 w Sandalwood Dr | Lehi     | Utah     | US      | 84043   | 3013270157   | No              |
+
+    And I add a new credit card
+      | first_name | last_name | card_number      | month | year | cvv | default_payment | billing_addres |
+      | YL         | Test      | 4440000009900010 | 01    | 2023 | 111 | Yes             | Yes            |
+
+
+    #  When I place an order
+    #  Then I should be at the home page
+    #  And get his Member Number
+
+
+    Examples:
+      | first_name | last_name | phone_number | password  |
+      | Mauricio   | Ramirez   | 3003206240   | Password1 |
+#| Andrea     | Cuervo    | 3003206240   | Password1 |
+
+

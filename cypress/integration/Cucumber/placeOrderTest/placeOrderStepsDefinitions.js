@@ -1,15 +1,11 @@
-
-import HomePage from '../../../support/PageObjects/HomePage'
-import SignInPage from "../../../support/PageObjects/SignInPage";
 import ViewCartpage from "../../../support/PageObjects/ViewCartPage";
 import CheckOutPage from "../../../support/PageObjects/CheckOutPage";
 import OrderConfirmationPage from "../../../support/PageObjects/OrderConfirmationPage";
 
-const homePage = new HomePage()
-const signInPage = new SignInPage()
-const viewCartpage = new ViewCartpage()
-const checkoutPage = new CheckOutPage()
-const orderConfirmationPage = new OrderConfirmationPage()
+
+const viewCartpage = new ViewCartpage();
+const checkoutPage = new CheckOutPage();
+const orderConfirmationPage = new OrderConfirmationPage();
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -18,35 +14,32 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 Given('I am at the Login page', () => {
 
-    cy.visit(Cypress.env('url') + "/us/en/").wait(2000);
-    homePage.getDropDownLink('Sign In').click();
-    signInPage.getSignInTitleText().should('be.visible').should('have.text', 'Sign In');
+    cy.goToLoginPage();
 })
 
 And('I log in to the Storefront with user {string}  and password {string}', (user, password) => {
-    cy.loginStorefront(user, password)
+    cy.loginStorefront(user, password);
 })
 
 When('I add the item to the shopping cart', (dataTable) => {
+
     dataTable.hashes().forEach((elem) => {
-        cy.addItemToShoppingCart(elem)
+        cy.addItemToShoppingCart(elem);
     });
-    viewCartpage.getCheckOutButton().click()
+    viewCartpage.getCheckOutButton().click();
 })
 
 And('I fill the checkout form with {string} and {string}', (shipping_method, payment_method) => {
 
-    //checkoutPage.getShippingAddressChangeButton().click();
-    //checkoutPage.getShippingAddressContinueButton().click();
+    checkoutPage.getShippingAddressChangeButton().should('be.visible').click();
+    checkoutPage.getShippingAddressContinueButton().should('be.visible').click();
 
-    if (shipping_method != "No") {
-        checkoutPage.getShippingMethodChangeButton().click()
-        checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
-        checkoutPage.getShippingMethodContinueButton().click()
-    }
+    //checkoutPage.getShippingMethodChangeButton().click()
+    checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
+    checkoutPage.getShippingMethodContinueButton().should('be.visible').click()
 
     checkoutPage.getPaymentMethodRadio(payment_method).check({ force: true }).should('be.checked')
-    checkoutPage.getPaymentMethodContinueButton().click()
+    checkoutPage.getPaymentMethodContinueButton().should('be.visible').click();
 })
 
 Then('I submit the order with donation {string}', (donation) => {
@@ -55,13 +48,14 @@ Then('I submit the order with donation {string}', (donation) => {
         checkoutPage.getDonationCheckBox().check({ force: true }).should('be.checked')
     }
     else {
-        checkoutPage.getDonationCheckBox().uncheck({ force: true })
+        checkoutPage.getDonationCheckBox().uncheck({ force: true });
     }
 
-    checkoutPage.getSubmitOrderButton().click()
+    checkoutPage.getSubmitOrderButton().click();
 })
 
 And('I should see the order confirmation {string}', (order_congrats) => {
+
     orderConfirmationPage.getCongratsText().should('contain', order_congrats)
 
     orderConfirmationPage.getOrderNumberText().then(($el) => {

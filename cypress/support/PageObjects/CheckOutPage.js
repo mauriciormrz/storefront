@@ -2,24 +2,28 @@ class CheckOutPage {
 
 
     getShippingAddressChangeButton() {
-        return cy.get('[data-testid=qa-ship-title] > .px-0 > .change-button')
+        
+        return cy.get('[data-testid=qa-ship-title] > .px-0 > .change-button');
     }
 
     getShippingAddressContinueButton() {
+
         return cy.get('.mt-2 > [data-testid=qa-ship-continue]')
     }
 
     getShippingMethodRadio(shipping_method) {
+
         return cy.get('[id*="' + shipping_method + '"]')
     }
 
     getShippingMethodChangeButton() {
+
         return cy.get('[data-testid=qa-shipping-method-title] .change-button');
     }
 
     getShippingMethodContinueButton() {
-        //return cy.get('[data-testid=qa-ship-methods-continue]');
-        return cy.get('button[data-testid="qa-ship-methods-continue"][type="button"].px-5.py-2.shipping-method-continue.semi-solid-button.btn.btn-primary');
+
+        return cy.get('[data-testid=qa-ship-methods-continue]');
     }
 
     getReferralIdContinueButton() {
