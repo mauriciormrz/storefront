@@ -11,7 +11,7 @@
       {
         "id": "place-an-order-for-the-first-time-with-a-new-customer;place-a-one-time-order",
         "keyword": "Scenario",
-        "line": 30,
+        "line": 33,
         "name": "Place a one-time order",
         "tags": [
           {
@@ -28,7 +28,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 10503000000
+              "duration": 10514000000
             }
           },
           {
@@ -38,7 +38,7 @@
             "name": "I am a new user with \"Mauricio\", \"Ramirez\", \"3003206240\" and \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 6157000000
+              "duration": 5442000000
             }
           },
           {
@@ -70,17 +70,29 @@
                       "3003206240",
                       "Yes"
                     ]
+                  },
+                  {
+                    "cells": [
+                      "Andrea",
+                      "Cuervo",
+                      "1538 w Sandalwood Dr",
+                      "Lehi",
+                      "Utah",
+                      "US",
+                      "84043",
+                      "3013270157",
+                      "No"
+                    ]
                   }
                 ]
               }
             ],
             "keyword": "And ",
-            "line": 13,
+            "line": 14,
             "name": "I add a new adddress",
             "result": {
-              "status": "failed",
-              "duration": 26149000000,
-              "error_message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `//p[contains(text(),'my Account')]`, but never found it.\n    at HomePage.getDropDownLink (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewCustomerTest.feature:200:17)\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewCustomerTest.feature:68:12)\n    at Context.resolveAndRunStepDefinition (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewCustomerTest.feature:10843:29)\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/integration/Cucumber/NewCustomerTest.feature:10175:35)"
+              "status": "passed",
+              "duration": 23159000000
             }
           },
           {
@@ -102,8 +114,20 @@
                   {
                     "cells": [
                       "YL",
-                      "Test",
+                      "Visa",
                       "4440000009900010",
+                      "01",
+                      "2023",
+                      "111",
+                      "Yes",
+                      "Yes"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "YL",
+                      "Mastercard",
+                      "5500005555555559",
                       "01",
                       "2023",
                       "111",
@@ -115,10 +139,54 @@
               }
             ],
             "keyword": "And ",
-            "line": 18,
+            "line": 19,
             "name": "I add a new credit card",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 13604000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "sku",
+                      "item",
+                      "quantity",
+                      "price",
+                      "pv"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3500",
+                      "Basil Essential Oil",
+                      "2",
+                      "26.50",
+                      "26.5"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 24,
+            "name": "I place a one-time first order with \"Lehi, UT Will Call Pick-up\", \"Card ending with\", \"Yes\" and \"1056692\"",
+            "result": {
+              "status": "passed",
+              "duration": 46128000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
+            "result": {
+              "status": "passed",
+              "duration": 4050000000
             }
           }
         ]

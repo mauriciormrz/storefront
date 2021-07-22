@@ -2,7 +2,7 @@ class CheckOutPage {
 
 
     getShippingAddressChangeButton() {
-        
+
         return cy.get('[data-testid=qa-ship-title] > .px-0 > .change-button');
     }
 
@@ -26,12 +26,6 @@ class CheckOutPage {
         return cy.get('[data-testid=qa-ship-methods-continue]');
     }
 
-    getReferralIdContinueButton() {
-        
-        return cy.get('button[data-testid="qa-referral-code-continue"][type="submit"].px-5.py-2.referral-code-continue.semi-solid-button.text-uppercase.btn.btn-primary');
-    }
-
-
     getPaymentMethodRadio(payment_method) {
 
         switch (payment_method) {
@@ -52,9 +46,24 @@ class CheckOutPage {
         return cy.get('#donationCheckbox_1');
     }
 
+    getregisterAgreementCheckbox() {
+
+        return cy.get('#registerAgreementCheckbox');
+    }
+
     getSubmitOrderButton() {
 
-        return cy.get('button[data-testid="qa-submit-order"][type="button"].w-100.submit-order-button.case-uppercase.btn-primary'); 
+        return cy.get('button[data-testid="qa-submit-order"][type="button"].w-100.submit-order-button.case-uppercase.btn-primary');
+    }
+
+    getReferralText() {
+
+        return cy.get('#referralId');
+    }
+
+    getReferralIdContinueButton() {
+
+        return cy.get('button[data-testid="qa-referral-code-continue"][type="submit"].px-5.py-2.referral-code-continue.semi-solid-button.text-uppercase.btn.btn-primary');
     }
 }
 

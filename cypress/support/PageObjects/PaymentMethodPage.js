@@ -1,4 +1,4 @@
-class PaymentMethodsPage {
+class PaymentMethodPage {
 
     getAddNewPaymentMethodIcon() {
 
@@ -59,5 +59,5 @@ class PaymentMethodsPage {
 
 }
 
-export default PaymentMethodsPage;
+export default PaymentMethodPage;
 

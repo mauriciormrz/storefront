@@ -86,24 +86,15 @@ And('get his Member Number', () => {
     myAccountMenu.getSubcriptionsLink().click();
     subscriptionsPage.getAccountName().should('contain', memberName);
 
-    //let message = cy.ifExists('.btn-outline-dark');
-    //cy.log('aqui');
-    //cy.log(Object.values(message)[0]);
-    //cy.log(Object.values(message)[1]);
-    //cy.log(Object.values(message)[2]);
-    //cy.log(Object.values(message)[3]);
-    //cy.log(Object.values(message)[4]);
-    //cy.log('aqui2');
+    cy.clickIfElemExists('button.btn.btn-sm.btn-outline-dark.yl_btn.shep-btn-light.shepherd-button');
 
-    cy.get('button.btn.btn-sm.btn-outline-dark.yl_btn.shep-btn-light.shepherd-button').click();
-    
     subscriptionsPage.getAccountID().then(($el) => {
-
         cy.log("Member Number: " + $el.text());
     })
 })
 
 When('I Loggin in Storefront with valid credentials {string} and {string}', (user, password) => {
+
     cy.loginStorefront(user, password);
 })
 

@@ -1,3 +1,8 @@
+
+//for (let [key, value] of Object.entries(existe)) {
+//    cy.log(key, value);
+//}
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -27,17 +32,25 @@
 import HomePage from './PageObjects/HomePage'
 import SignInPage from "./PageObjects/SignInPage";
 import ProductPage from "./PageObjects/ProductPage";
+import CheckOutPage from './PageObjects/CheckOutPage';
+import ViewCartPage from './PageObjects/ViewCartPage';
 import NewAccountPage from "./PageObjects/NewAccountPage";
 import AddressBookPage from './PageObjects/AddressBookPage';
-//import PaymentMethodsPage from './PageObjects/PaymentMethodsPage';
+import PaymentMethodPage from './PageObjects/PaymentMethodPage';
+import OrderConfirmationPage from './PageObjects/OrderConfirmationPage';
+
 
 
 const homePage = new HomePage();
 const signInPage = new SignInPage();
 const productPage = new ProductPage();
+const checkoutPage = new CheckOutPage();
+const viewCartpage = new ViewCartPage();
 const newAccountPage = new NewAccountPage();
 const addressBookPage = new AddressBookPage();
-//const paymentMethodsPage = PaymentMethodsPage();
+const paymentMethodPage = new PaymentMethodPage();
+const orderConfirmationPage = new OrderConfirmationPage();
+
 
 
 Cypress.Commands.add('goToLoginPage', () => {
@@ -101,10 +114,20 @@ Cypress.Commands.add('addItemToShoppingCart', ({ sku, item, quantity }) => {
     productPage.getQuantityCtrl().clear().type(quantity);
     productPage.getAddCartButton().click();
 
+    cy.toastMessage('Added to Cart Successfully');
+
     productPage.getViewCartButton().click();
 })
 
-Cypress.Commands.add('addNewAddress', ({ first_name, last_name, address, city, state, country, zipcode, phone_number, default_address}) => {
+Cypress.Commands.add('addingItemsToCart', (dataTable) => {
+
+    dataTable.hashes().forEach((elem) => {
+        cy.addItemToShoppingCart(elem);
+    });
+    viewCartpage.getCheckOutButton().click();
+})
+
+Cypress.Commands.add('addNewAddress', ({ first_name, last_name, address, city, state, country, zipcode, phone_number, default_address }) => {
 
 
     addressBookPage.getFirstNameText().type(first_name);
@@ -129,47 +152,126 @@ Cypress.Commands.add('addNewAddress', ({ first_name, last_name, address, city, s
 
 })
 
-//Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, month, year, cvv, default_payment, default_address}) => {
-//
-//
-//    paymentMethodsPage.getAddNewPaymentMethodTypeSelect().should('be.visible').select('CreditCard');
-//
-//    paymentMethodsPage.getFirstNameText().type(first_name);
-//    paymentMethodsPage.getLastNameText().type(last_name);
-//
-//    paymentMethodsPage.getCountrySelect().select(country);
-//
-//    paymentMethodsPage.getCardNumberText().type(card_number);
-//    paymentMethodsPage.getExpiryMonthText().type(month);
-//    paymentMethodsPage.getExpiryYearText().type(year);
-//    paymentMethodsPage.getCardCVVText().type(cvv);
-//
-//
-//    if (default_payment == "Yes") {
-//        paymentMethodsPage.getDefaultPaymentText().check({ force: true }).should('be.checked')
-//    }
-//    else {
-//        paymentMethodsPage.getDefaultPaymentText().uncheck({ force: true });
-//    }
-//
-//    if (default_address == "Yes") {
-//        paymentMethodsPage.getBillingSameAsShippingText().check({ force: true }).should('be.checked')
-//    }
-//    else {
-//        paymentMethodsPage.getBillingSameAsShippingText().uncheck({ force: true });
-//    }
-//
-//    addressBookPage.getSaveButton().click();
-//
-//})
+Cypress.Commands.add('clickIfElemExists', ({ elem }) => {
 
-Cypress.Commands.add('ifExists', (selector) => {
-    cy.document().then(($document) => {
-        const documentResult = $document.querySelectorAll(selector)
-        cy.log(documentResult)
-        if (documentResult.length) {
-            cy.log("it exists, do something")
-            return ("it exists, do something")
+    cy.get('body').then($body => {
+
+        if ($body.find(elem).length > 0) {
+
+            cy.get(elem).should('be.visible').click();
         }
+    });
+})
+
+
+Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, month, year, cvv, default_payment, default_address }) => {
+
+    paymentMethodPage.getAddNewPaymentMethodTypeSelect().should('be.visible').select('CreditCard');
+
+    paymentMethodPage.getFirstNameText().type(first_name);
+    paymentMethodPage.getLastNameText().type(last_name);
+
+    paymentMethodPage.getCardNumberText().type(card_number);
+    paymentMethodPage.getExpiryMonthText().type(month);
+    paymentMethodPage.getExpiryYearText().type(year);
+    paymentMethodPage.getCardCVVText().type(cvv);
+
+
+    if (default_payment == "Yes") {
+        paymentMethodPage.getDefaultPaymentText().check({ force: true }).should('be.checked')
+    }
+    else {
+        paymentMethodPage.getDefaultPaymentText().uncheck({ force: true });
+    }
+
+    //if (default_address == "Yes") {
+    //    paymentMethodPage.getBillingSameAsShippingText().check({ force: true }).should('be.checked')
+    //}
+    //else {
+    //    paymentMethodPage.getBillingSameAsShippingText().uncheck({ force: true });
+    //}
+
+    paymentMethodPage.getSaveButton().click();
+
+})
+
+
+Cypress.Commands.add('toastMessage', (msg) => {
+
+    cy.xpath("//div[contains(text(),'" + msg + "')]").should('be.visible');
+    cy.get('#toastButton').click();
+})
+
+
+Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method, referral) => {
+
+    checkoutPage.getShippingAddressChangeButton().should('be.visible').click();
+    checkoutPage.getShippingAddressContinueButton().should('be.visible').click();
+
+
+    //checkoutPage.getShippingMethodChangeButton().click()
+    checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
+    checkoutPage.getShippingMethodContinueButton().should('be.visible').click()
+
+    if (referral) {
+
+        checkoutPage.getReferralText().type(referral);
+        checkoutPage.getReferralIdContinueButton().click();
+        cy.toastMessage('Referral Id added successfully');
+
+        checkoutPage.getregisterAgreementCheckbox().check({ force: true }).should('be.checked');
+    }
+
+    checkoutPage.getPaymentMethodRadio(payment_method).check({ force: true }).should('be.checked');
+    checkoutPage.getPaymentMethodContinueButton().should('be.visible').click();
+
+})
+
+Cypress.Commands.add('submitOrder', (donation) => {
+
+    if (donation == "Yes") {
+        checkoutPage.getDonationCheckBox().check({ force: true }).should('be.checked')
+    }
+    else {
+        checkoutPage.getDonationCheckBox().uncheck({ force: true });
+    }
+
+    checkoutPage.getSubmitOrderButton().click();
+})
+
+Cypress.Commands.add('seeTheOrderConfirmation', (congrats_message) => {
+
+    orderConfirmationPage.getCongratsText().should('contain', congrats_message)
+
+    orderConfirmationPage.getOrderNumberText().then(($el) => {
+        var order = $el.text()
+        order = order.replace('#', '')
+
+        cy.log("Order:" + order)
     })
 })
+
+
+//Cypress.Commands.add('ifExists', (selector) => {
+//    cy.document().then(($document) => {
+//        const documentResult = $document.querySelectorAll(selector)
+//        cy.log(documentResult)
+//        if (documentResult.length) {
+//            cy.log("it exists, do something")
+//            return ("it exists, do something")
+//        }
+//    })
+//})
+
+/*
+Cypress + JavaScript + Node.
+Java + Selenium-Webdriver + Serenity BDD (Maven, Gradle).
+MySQL.
+Design Patters.
+GIT + GitHub.
+SOLID Principles.
+Java 8 Functional Progamming Lambdas & Streams.
+Rest Assured API.
+Jira.
+*/
+

@@ -23,7 +23,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 10565000000
+              "duration": 9924000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 5692000000
+              "duration": 4893000000
             }
           },
           {
@@ -84,7 +84,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 30875000000
+              "duration": 21163000000
             }
           },
           {
@@ -94,7 +94,7 @@
             "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal Account\"",
             "result": {
               "status": "passed",
-              "duration": 13504000000
+              "duration": 9004000000
             }
           },
           {
@@ -104,7 +104,7 @@
             "name": "I submit the order with donation \"Yes\"",
             "result": {
               "status": "passed",
-              "duration": 3539000000
+              "duration": 3320000000
             }
           },
           {
@@ -114,7 +114,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 4728000000
+              "duration": 3825000000
             }
           }
         ]
@@ -134,7 +134,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 10277000000
+              "duration": 10111000000
             }
           },
           {
@@ -144,7 +144,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 5680000000
+              "duration": 7175000000
             }
           },
           {
@@ -195,7 +195,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 31286000000
+              "duration": 21832000000
             }
           },
           {
@@ -205,7 +205,7 @@
             "name": "I fill the checkout form with \"Expedited\" and \"Card ending with\"",
             "result": {
               "status": "passed",
-              "duration": 14518000000
+              "duration": 9671000000
             }
           },
           {
@@ -215,7 +215,7 @@
             "name": "I submit the order with donation \"No\"",
             "result": {
               "status": "passed",
-              "duration": 2874000000
+              "duration": 2878000000
             }
           },
           {
@@ -225,7 +225,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3921000000
+              "duration": 4229000000
             }
           }
         ]
@@ -245,7 +245,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 10472000000
+              "duration": 10601000000
             }
           },
           {
@@ -255,7 +255,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 7346000000
+              "duration": 4929000000
             }
           },
           {
@@ -306,7 +306,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 30366000000
+              "duration": 21638000000
             }
           },
           {
@@ -316,7 +316,7 @@
             "name": "I fill the checkout form with \"Standard\" and \"Account ending in\"",
             "result": {
               "status": "passed",
-              "duration": 12951000000
+              "duration": 10713000000
             }
           },
           {
@@ -326,7 +326,7 @@
             "name": "I submit the order with donation \"No\"",
             "result": {
               "status": "passed",
-              "duration": 3039000000
+              "duration": 2306000000
             }
           },
           {
@@ -336,7 +336,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 4739000000
+              "duration": 3679000000
             }
           }
         ]

@@ -11,8 +11,8 @@ Feature: Place an order
         When I add the item to the shopping cart
             | sku  | item                  | quantity | price | pv   |
             | 3500 | Basil Essential Oil   | 2        | 26.50 | 26.5 |
-            #| 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
-            #| 5203 | Lavender Lip Balm     | 1        | 4.25  | 4.25 |
+            | 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
+            | 5203 | Lavender Lip Balm     | 1        | 4.25  | 4.25 |
 
         And I fill the checkout form with "<shipping_method>" and "<payment_method>"
         Then I submit the order with donation "<donation>"
@@ -21,8 +21,8 @@ Feature: Place an order
         Examples:
             | shipping_method            | payment_method    | donation |
             | Lehi, UT Will Call Pick-up | PayPal Account    | Yes      |
-            #| Expedited                  | Card ending with  | No       |
-            #| Standard                   | Account ending in | No       |
+            | Expedited                  | Card ending with  | No       |
+            | Standard                   | Account ending in | No       |
 
 #1056463
 #Users LP

@@ -4,13 +4,16 @@ import MyAccountMenu from "../../../support/PageObjects/MyAccountMenu";
 import HomePage from '../../../support/PageObjects/HomePage';
 import SideLeftMenu from '../../../support/PageObjects/SideLeftMenu';
 import AddressBookPage from '../../../support/PageObjects/AddressBookPage';
-import PaymentMethodsPage from '../../../support/PageObjects/PaymentMethodsPage';
+import PaymentMethodPage from "../../../support/PageObjects/PaymentMethodPage";
+//import CheckOutPage from "../../../support/PageObjects/CheckOutPage";
+
 
 const myAccountMenu = new MyAccountMenu();
 const homePage = new HomePage();
 const sideLeftMenu = new SideLeftMenu();
 const addressBookPage = new AddressBookPage();
-const paymentMethodsPage = new PaymentMethodsPage();
+const paymentMethodPage = new PaymentMethodPage();
+//const checkOutPage = new CheckOutPage();
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -36,22 +39,14 @@ Given('I add a new adddress', (dataTable) => {
     homePage.getDropDownLink('my Account').dblclick();
     myAccountMenu.getSubcriptionsLink().click();
 
-    //cy.xpath("(//*/button[contains(text(),'No Thanks')])[1]").should('be.visible').click();
-
-    //sideLeftMenu.getAddressBookMenuOption().click();
     sideLeftMenu.geSideMenuOption('Address Book').click();
 
-    dataTable.hashes().forEach((elem, index) => {
+    dataTable.hashes().forEach((elem) => {
 
         addressBookPage.getAddNewAddressIcon().click();
         cy.addNewAddress(elem);
 
-        cy.xpath("//div[contains(text(),'Address added successfully')]").should('be.visible');
-        cy.get('#toastButton').click();
-
-        //if (index === 0) {
-        //    cy.xpath("(//*/button[contains(text(),'No Thanks')])[2]").click();
-        //}
+        cy.toastMessage('Address added successfully');
 
     });
 })
@@ -59,12 +54,25 @@ Given('I add a new adddress', (dataTable) => {
 Given('I add a new credit card', (dataTable) => {
 
     sideLeftMenu.geSideMenuOption('Payment Methods').click();
-    paymentMethodsPage.getAddNewPaymentMethodIcon().should('be.visible').click();
-    
 
-    dataTable.hashes().forEach((elem, index) => {
+    dataTable.hashes().forEach((elem) => {
 
-        paymentMethodsPage.getAddNewPaymentMethodIcon().click();
+        paymentMethodPage.getAddNewPaymentMethodIcon().click();
         cy.addNewCreditCard(elem);
+
+        cy.toastMessage('Payment added successfully');
     });
+})
+
+When('I place a one-time first order with {string}, {string}, {string} and {string}', (shipping_method, payment_method, donation, referral, dataTable) => {
+
+    cy.addingItemsToCart(dataTable);
+
+    cy.fillOutTheCheckoutForm(shipping_method, payment_method, referral);
+    cy.submitOrder(donation);
+})
+
+And('I should see the order confirmation {string}', (congrats_message) => {
+
+    cy.seeTheOrderConfirmation(congrats_message);
 })
