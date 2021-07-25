@@ -34,6 +34,7 @@ import SignInPage from "./PageObjects/SignInPage";
 import ProductPage from "./PageObjects/ProductPage";
 import CheckOutPage from './PageObjects/CheckOutPage';
 import ViewCartPage from './PageObjects/ViewCartPage';
+import MyAccountMenu from './PageObjects/MyAccountMenu';
 import NewAccountPage from "./PageObjects/NewAccountPage";
 import AddressBookPage from './PageObjects/AddressBookPage';
 import PaymentMethodPage from './PageObjects/PaymentMethodPage';
@@ -46,6 +47,7 @@ const signInPage = new SignInPage();
 const productPage = new ProductPage();
 const checkoutPage = new CheckOutPage();
 const viewCartpage = new ViewCartPage();
+const myAccountMenu = new MyAccountMenu();
 const newAccountPage = new NewAccountPage();
 const addressBookPage = new AddressBookPage();
 const paymentMethodPage = new PaymentMethodPage();
@@ -55,9 +57,14 @@ const orderConfirmationPage = new OrderConfirmationPage();
 
 Cypress.Commands.add('goToLoginPage', () => {
 
-    cy.visit(Cypress.env('url') + "/us/en/").wait(2000);
+    cy.visit(Cypress.env('url') + "/us/en/");
     homePage.getDropDownLink('Sign In').click();
-    signInPage.getSignInTitleText().should('have.text', 'Sign In');
+})
+
+Cypress.Commands.add('welComeHomePage', () => {
+
+    homePage.getDropDownLink('my Account').dblclick();
+    myAccountMenu.getWelcomeText().should('contain', 'Welcome');
 })
 
 Cypress.Commands.add('goToRegisterPage', () => {
@@ -65,7 +72,7 @@ Cypress.Commands.add('goToRegisterPage', () => {
     cy.url().then(url => {
         let currentURL = url;
         currentURL = currentURL.replace('%26initial_screen%3Dlogin', '');
-        cy.visit(currentURL + '%26initial_screen%3Dsignup').wait(2000);
+        cy.visit(currentURL + '%26initial_screen%3Dsignup');
     });
     newAccountPage.getCreateAccountTitleText().should('have.text', 'Create Your Account');
 })
@@ -141,11 +148,8 @@ Cypress.Commands.add('addNewAddress', ({ first_name, last_name, address, city, s
     addressBookPage.getZipCodeText().type(zipcode);
     addressBookPage.getPhoneNumberText().type(phone_number);
 
-    if (default_address == "Yes") {
+    if (default_address.toUpperCase() == "YES") {
         addressBookPage.getDefaultAddressCheckBox().check({ force: true }).should('be.checked')
-    }
-    else {
-        addressBookPage.getDefaultAddressCheckBox().uncheck({ force: true });
     }
 
     addressBookPage.getSaveButton().click();
@@ -164,7 +168,7 @@ Cypress.Commands.add('clickIfElemExists', ({ elem }) => {
 })
 
 
-Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, month, year, cvv, default_payment, default_address }) => {
+Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, month, year, cvv, default_payment, billing_addres }) => {
 
     paymentMethodPage.getAddNewPaymentMethodTypeSelect().should('be.visible').select('CreditCard');
 
@@ -177,17 +181,11 @@ Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, 
     paymentMethodPage.getCardCVVText().type(cvv);
 
 
-    if (default_payment == "Yes") {
-        paymentMethodPage.getDefaultPaymentText().check({ force: true }).should('be.checked')
-    }
-    else {
-        paymentMethodPage.getDefaultPaymentText().uncheck({ force: true });
+    if (default_payment.toUpperCase() == "YES") {
+        paymentMethodPage.getDefaultPaymentText().check({ force: true });
     }
 
-    //if (default_address == "Yes") {
-    //    paymentMethodPage.getBillingSameAsShippingText().check({ force: true }).should('be.checked')
-    //}
-    //else {
+    //if (billing_address == "No") {
     //    paymentMethodPage.getBillingSameAsShippingText().uncheck({ force: true });
     //}
 
@@ -198,12 +196,13 @@ Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, 
 
 Cypress.Commands.add('toastMessage', (msg) => {
 
+
     cy.xpath("//div[contains(text(),'" + msg + "')]").should('be.visible');
     cy.get('#toastButton').click();
 })
 
 
-Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method, referral) => {
+Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method, referral_id) => {
 
     checkoutPage.getShippingAddressChangeButton().should('be.visible').click();
     checkoutPage.getShippingAddressContinueButton().should('be.visible').click();
@@ -213,15 +212,28 @@ Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method,
     checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
     checkoutPage.getShippingMethodContinueButton().should('be.visible').click()
 
-    if (referral) {
+    if (referral_id) {
 
-        checkoutPage.getReferralText().type(referral);
+        checkoutPage.getReferralText().type(referral_id);
         checkoutPage.getReferralIdContinueButton().click();
         cy.toastMessage('Referral Id added successfully');
 
         checkoutPage.getregisterAgreementCheckbox().check({ force: true }).should('be.checked');
     }
 
+    switch (payment_method) {
+
+        case 'Credit Card':
+            payment_method= 'Card ending with';
+            break;
+        case 'ACH':
+            payment_method= 'Account ending in';
+            break;
+        case 'PayPal':
+            payment_method= 'PayPal Account';
+            break;
+    }
+    
     checkoutPage.getPaymentMethodRadio(payment_method).check({ force: true }).should('be.checked');
     checkoutPage.getPaymentMethodContinueButton().should('be.visible').click();
 
@@ -229,7 +241,8 @@ Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method,
 
 Cypress.Commands.add('submitOrder', (donation) => {
 
-    if (donation == "Yes") {
+
+    if (donation.toUpperCase() == "YES") {
         checkoutPage.getDonationCheckBox().check({ force: true }).should('be.checked')
     }
     else {

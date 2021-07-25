@@ -53,7 +53,8 @@ class CheckOutPage {
 
     getSubmitOrderButton() {
 
-        return cy.get('button[data-testid="qa-submit-order"][type="button"].w-100.submit-order-button.case-uppercase.btn-primary');
+        //return cy.get('button[data-testid="qa-submit-order"][type="button"].w-100.submit-order-button.case-uppercase.btn-primary');
+        return cy.get('[data-testid=qa-submit-order').not('.disabled');
     }
 
     getReferralText() {

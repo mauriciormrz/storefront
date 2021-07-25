@@ -1,6 +1,7 @@
 {
+  "pageLoadTimeout": 300000,
   "scrollBehavior": false,
-  "defaultCommandTimeout": 30000,
+  "defaultCommandTimeout": 25000,
   "env": {
     "url": "https://clone.youngliving.com"
   },
@@ -8,8 +9,8 @@
   "viewportHeight": 1280,
   "testFiles": "**/*.feature",
   "retries": {
-    "runMode": 2,
-    "openMode": 1
+    "runMode": 0,
+    "openMode": 0
   },
   "projectId": "q8dfqr"
 }

@@ -43,8 +43,9 @@ And('I hit the login button', () => {
 
 Then('I should be at the home page', () => {
 
-    homePage.getDropDownLink('my Account').dblclick()
-    myAccountMenu.getWelcomeText().should('contain', 'Welcome')
+    //homePage.getDropDownLink('my Account').dblclick();
+    //myAccountMenu.getWelcomeText().should('contain', 'Welcome');
+    cy.welComeHomePage();
 })
 
 And('I logout', () => {

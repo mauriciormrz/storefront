@@ -1,27 +1,22 @@
-class SignInPage
-{
-    getSignInTitleText()
-    {
-        return cy.get('.signin-title')
-    }
+class SignInPage {
+    // getSignInTitleText()
+    // {
+    //     return cy.get('.signin-title')
+    // }
 
-    getUserNameText()
-    {
+    getUserNameText() {
         return cy.get('#loginUsername')
     }
 
-    getPasswordText()
-    {
+    getPasswordText() {
         return cy.get('#loginPassword')
     }
 
-    getLoginButton()
-    {
+    getLoginButton() {
         return cy.get('#login-btn')
     }
 
-    getErrorMessageText()
-    {
+    getErrorMessageText() {
         return cy.get(':nth-child(1) > .mb-5 > #error-message-signin')
     }
 }

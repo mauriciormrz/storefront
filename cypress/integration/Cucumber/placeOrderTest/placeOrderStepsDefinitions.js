@@ -1,11 +1,5 @@
-import ViewCartpage from "../../../support/PageObjects/ViewCartPage";
-import CheckOutPage from "../../../support/PageObjects/CheckOutPage";
-import OrderConfirmationPage from "../../../support/PageObjects/OrderConfirmationPage";
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
-
-const viewCartpage = new ViewCartpage();
-const checkoutPage = new CheckOutPage();
-const orderConfirmationPage = new OrderConfirmationPage();
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -41,3 +35,5 @@ And('I should see the order confirmation {string}', (congrats_message) => {
 
     cy.seeTheOrderConfirmation(congrats_message);
 })
+
+

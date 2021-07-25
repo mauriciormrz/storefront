@@ -2,7 +2,6 @@ class HomePage {
 
     getDropDownLink(option) {
 
-        cy.wait(2000);
         return cy.xpath("//p[contains(text(),'" + option + "')]");
     }
 
@@ -13,4 +12,5 @@ class HomePage {
 }
 
 export default HomePage;
+
 

@@ -6,7 +6,7 @@
   "scripts": {
     "open": "./node_modules/.bin/cypress open",
     "test": "NO_COLOR=1 ./node_modules/.bin/cypress run",
-    "testColor": "./node_modules/.bin/cypress run",
+    "color": "./node_modules/.bin/cypress run",
     "testChrome": "npm run test -- --browser chrome --headless",
     "testDashboard": "npm run test -- --record --key e72fc819-21be-404c-8fe8-a00a8261b32c",
     "testDashboardChromeHeadless": "npm run test -- --record --key e72fc819-21be-404c-8fe8-a00a8261b32c --browser chrome --headless",

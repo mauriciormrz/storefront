@@ -26,7 +26,7 @@ Given('I am at the Login page', () => {
     cy.goToLoginPage();
 })
 
-Given('I am a new user with {string}, {string}, {string} and {string}', (first_name, last_name, phone_number, password) => {
+Given('I am a new customer with {string}, {string}, {string} and {string}', (first_name, last_name, phone_number, password) => {
 
     cy.goToRegisterPage();
     cy.fillOutTheAccountCreationForm(first_name, last_name, phone_number, password);
@@ -36,24 +36,23 @@ Given('I am a new user with {string}, {string}, {string} and {string}', (first_n
 
 Given('I add a new adddress', (dataTable) => {
 
-    homePage.getDropDownLink('my Account').dblclick();
+    cy.welComeHomePage();
     myAccountMenu.getSubcriptionsLink().click();
 
     sideLeftMenu.geSideMenuOption('Address Book').click();
 
     dataTable.hashes().forEach((elem) => {
 
-        addressBookPage.getAddNewAddressIcon().click();
+        addressBookPage.getAddNewAddressIcon().should('be.visible').click();
         cy.addNewAddress(elem);
 
         cy.toastMessage('Address added successfully');
-
     });
 })
 
 Given('I add a new credit card', (dataTable) => {
 
-    sideLeftMenu.geSideMenuOption('Payment Methods').click();
+    sideLeftMenu.geSideMenuOption('Payment Methods').should('be.visible').click();
 
     dataTable.hashes().forEach((elem) => {
 
@@ -64,11 +63,11 @@ Given('I add a new credit card', (dataTable) => {
     });
 })
 
-When('I place a one-time first order with {string}, {string}, {string} and {string}', (shipping_method, payment_method, donation, referral, dataTable) => {
+When('I place a one-time first order with {string}, {string}, {string} and {string}', (shipping_method, payment_method, donation, referral_id, dataTable) => {
 
     cy.addingItemsToCart(dataTable);
 
-    cy.fillOutTheCheckoutForm(shipping_method, payment_method, referral);
+    cy.fillOutTheCheckoutForm(shipping_method, payment_method, referral_id);
     cy.submitOrder(donation);
 })
 

@@ -4,3 +4,4 @@
 /cypress/reports/
 /cypress/screenshots/
 /cypress/videos/
+/cypress/cucumber-json/

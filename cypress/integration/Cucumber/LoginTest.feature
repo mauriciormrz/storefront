@@ -5,8 +5,7 @@ Feature: Sign In
 
   Background:
     Given I am at the Login page
-     
-  @Smoke
+
   Scenario Outline: Loggin with valid credentials
     When I fill in the account email field with the value "<user>"
     And I fill in the password field with the value "<password>"
@@ -17,15 +16,16 @@ Feature: Sign In
     Examples:
       | user | password  |
       | 5010 | Password1 |
+      #| 3907 | Password1 |
 
-  @Smoke
+
   Scenario: Loggin with invalid credentials
     When I fill in the account email field with the value "29014961"
     And I fill in the password field with the value "Password1"
     And I hit the login button
     Then the error message "Incorrect username or password" is displayed
 
-  @Integration
+
   Scenario: Loggin by becoming a new member
     Given I am at the Become a Member page
     When I fill out the account creating form
