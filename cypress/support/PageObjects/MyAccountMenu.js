@@ -9,7 +9,8 @@ class MyAccountMenu {
     }
 
     getSubcriptionsLink() {
-        return cy.get('[data-testid]:contains("Subscriptions")');
+        //return cy.get('[data-testid]:contains("Subscriptions")');
+        return cy.get('a[href*="myaccount/subscriptions"]');
     }
 
     getSignOutLink() {

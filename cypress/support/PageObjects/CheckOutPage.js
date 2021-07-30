@@ -41,6 +41,7 @@ class CheckOutPage {
         return cy.get('button[type="submit"].px-5.py-2.add-payment-continue.list-specific-continue.text-uppercase.btn.btn-primary');
     }
 
+
     getDonationCheckBox() {
 
         return cy.get('#donationCheckbox_1');

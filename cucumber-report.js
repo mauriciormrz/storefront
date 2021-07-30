@@ -17,7 +17,7 @@ report.generate({
     customData: {
         title: 'Young Living',
         data: [
-            {label: 'Project', value: 'Skava Storefront'},
+            {label: 'Project', value: 'JDE Fulfillment'},
             {label: 'Release', value: ' '},
             {label: 'Cycle', value: ' '},
             {label: 'Execution Start Time', value: ' '},

@@ -23,7 +23,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 7725000000
+              "duration": 11747000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "I fill in the account email field with the value \"5010\"",
             "result": {
               "status": "passed",
-              "duration": 1020000000
+              "duration": 248000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "I fill in the password field with the value \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 350000000
+              "duration": 313000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "I hit the login button",
             "result": {
               "status": "passed",
-              "duration": 148000000
+              "duration": 133000000
             }
           },
           {
@@ -63,7 +63,7 @@
             "name": "I should be at the home page",
             "result": {
               "status": "passed",
-              "duration": 6002000000
+              "duration": 5588000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "I logout",
             "result": {
               "status": "passed",
-              "duration": 5807000000
+              "duration": 4691000000
             }
           }
         ]
@@ -81,7 +81,7 @@
       {
         "id": "sign-in;loggin-with-invalid-credentials",
         "keyword": "Scenario",
-        "line": 22,
+        "line": 21,
         "name": "Loggin with invalid credentials",
         "tags": [],
         "type": "scenario",
@@ -93,47 +93,47 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 5832000000
+              "duration": 6532000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 23,
+            "line": 22,
             "name": "I fill in the account email field with the value \"29014961\"",
             "result": {
               "status": "passed",
-              "duration": 962000000
+              "duration": 303000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I fill in the password field with the value \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 325000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 24,
-            "name": "I fill in the password field with the value \"Password1\"",
-            "result": {
-              "status": "passed",
-              "duration": 350000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 25,
             "name": "I hit the login button",
             "result": {
               "status": "passed",
-              "duration": 157000000
+              "duration": 129000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 26,
+            "line": 25,
             "name": "the error message \"Incorrect username or password\" is displayed",
             "result": {
               "status": "passed",
-              "duration": 493000000
+              "duration": 604000000
             }
           }
         ]
@@ -141,7 +141,7 @@
       {
         "id": "sign-in;loggin-by-becoming-a-new-member",
         "keyword": "Scenario",
-        "line": 29,
+        "line": 28,
         "name": "Loggin by becoming a new member",
         "tags": [],
         "type": "scenario",
@@ -153,17 +153,17 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 4144000000
+              "duration": 6009000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 30,
+            "line": 29,
             "name": "I am at the Become a Member page",
             "result": {
               "status": "passed",
-              "duration": 1428000000
+              "duration": 175000000
             }
           },
           {
@@ -190,41 +190,41 @@
               }
             ],
             "keyword": "When ",
-            "line": 31,
+            "line": 30,
             "name": "I fill out the account creating form",
             "result": {
               "status": "passed",
-              "duration": 2364000000
+              "duration": 2296000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 34,
+            "line": 35,
             "name": "I submit the form",
             "result": {
               "status": "passed",
-              "duration": 325000000
+              "duration": 149000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 35,
+            "line": 36,
             "name": "I should be at the home page",
             "result": {
               "status": "passed",
-              "duration": 4442000000
+              "duration": 7493000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 36,
+            "line": 37,
             "name": "get his Member Number",
             "result": {
               "status": "passed",
-              "duration": 1217000000
+              "duration": 2675000000
             }
           }
         ]

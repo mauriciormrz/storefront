@@ -9,9 +9,9 @@ Feature: Place an order
 
     Scenario Outline: Place an order using only CC, ACH or PayPal
         When I add the item to the shopping cart
-            | sku  | item                | quantity | price | pv   |
-            | 3500 | Basil Essential Oil | 2        | 26.50 | 26.5 |
-        #| 5178 | Lip Balm - Grapefruit  | 3        | 4.50  | 4.5   |
+            | sku  | item                  | quantity | price | pv   |
+            | 3500 | Basil Essential Oil   | 2        | 26.50 | 26.5 |
+            | 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
         #| 5203 | Lavender Lip Balm      | 1        | 4.25  | 4.25  |
         #| 4710 | Ningxia Red Combo Pack | 3        | 158.0 | 158.0 |
         #| 3419 | RutaVaLa Essential Oil | 1        | 33.75 | 33.75 |
@@ -23,7 +23,6 @@ Feature: Place an order
 
         Examples:
             | shipping_method            | payment_method | donation |
-            | Lehi, UT Will Call Pick-up | Credit Card    | Yes      |
             | Lehi, UT Will Call Pick-up | PayPal         | No       |
             | Expedited                  | Credit Card    | No       |
             | Standard                   | ACH            | Yes      |

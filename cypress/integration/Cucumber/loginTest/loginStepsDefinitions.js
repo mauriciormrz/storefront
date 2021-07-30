@@ -1,13 +1,12 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
-import HomePage from '../../../support/PageObjects/HomePage';
+
 import SignInPage from "../../../support/PageObjects/SignInPage";
 import MyAccountMenu from "../../../support/PageObjects/MyAccountMenu";
 import SubscriptionsPage from "../../../support/PageObjects/SubscriptionsPage";
 import EndPage from '../../../support/PageObjects/EndPage';
 
 
-const homePage = new HomePage();
 const signInPage = new SignInPage();
 const myAccountMenu = new MyAccountMenu();
 const subscriptionsPage = new SubscriptionsPage();
@@ -43,8 +42,6 @@ And('I hit the login button', () => {
 
 Then('I should be at the home page', () => {
 
-    //homePage.getDropDownLink('my Account').dblclick();
-    //myAccountMenu.getWelcomeText().should('contain', 'Welcome');
     cy.welComeHomePage();
 })
 
@@ -74,7 +71,6 @@ When('I fill out the account creating form', (dataTable) => {
     memberName = first_name + " " + last_name;
 
     cy.fillOutTheAccountCreationForm(first_name, last_name, phone_number, password);
-
 })
 
 And('I submit the form', () => {
@@ -84,10 +80,10 @@ And('I submit the form', () => {
 
 And('get his Member Number', () => {
 
-    myAccountMenu.getSubcriptionsLink().click();
+    myAccountMenu.getSubcriptionsLink().trigger('mouseover').click();
     subscriptionsPage.getAccountName().should('contain', memberName);
 
-    cy.clickIfElemExists('button.btn.btn-sm.btn-outline-dark.yl_btn.shep-btn-light.shepherd-button');
+    cy.clickIfElemExists("button.btn.btn-sm.btn-outline-dark.yl_btn.shep-btn-light.shepherd-button");
 
     subscriptionsPage.getAccountID().then(($el) => {
         cy.log("Member Number: " + $el.text());

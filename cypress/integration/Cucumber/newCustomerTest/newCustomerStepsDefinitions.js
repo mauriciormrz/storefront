@@ -5,7 +5,6 @@ import HomePage from '../../../support/PageObjects/HomePage';
 import SideLeftMenu from '../../../support/PageObjects/SideLeftMenu';
 import AddressBookPage from '../../../support/PageObjects/AddressBookPage';
 import PaymentMethodPage from "../../../support/PageObjects/PaymentMethodPage";
-//import CheckOutPage from "../../../support/PageObjects/CheckOutPage";
 
 
 const myAccountMenu = new MyAccountMenu();
@@ -13,7 +12,6 @@ const homePage = new HomePage();
 const sideLeftMenu = new SideLeftMenu();
 const addressBookPage = new AddressBookPage();
 const paymentMethodPage = new PaymentMethodPage();
-//const checkOutPage = new CheckOutPage();
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -37,9 +35,9 @@ Given('I am a new customer with {string}, {string}, {string} and {string}', (fir
 Given('I add a new adddress', (dataTable) => {
 
     cy.welComeHomePage();
-    myAccountMenu.getSubcriptionsLink().click();
 
-    sideLeftMenu.geSideMenuOption('Address Book').click();
+    myAccountMenu.getSubcriptionsLink().trigger('mouseover').click();
+    sideLeftMenu.geSideMenuOption('Address Book').should('be.visible').click();
 
     dataTable.hashes().forEach((elem) => {
 
@@ -66,12 +64,12 @@ Given('I add a new credit card', (dataTable) => {
 When('I place a one-time first order with {string}, {string}, {string} and {string}', (shipping_method, payment_method, donation, referral_id, dataTable) => {
 
     cy.addingItemsToCart(dataTable);
-
+    
     cy.fillOutTheCheckoutForm(shipping_method, payment_method, referral_id);
     cy.submitOrder(donation);
 })
 
 And('I should see the order confirmation {string}', (congrats_message) => {
 
-    cy.seeTheOrderConfirmation(congrats_message);
+     cy.seeTheOrderConfirmation(congrats_message);
 })

@@ -23,7 +23,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 10478000000
+              "duration": 15289000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 7690000000
+              "duration": 7183000000
             }
           },
           {
@@ -57,6 +57,15 @@
                       "26.50",
                       "26.5"
                     ]
+                  },
+                  {
+                    "cells": [
+                      "5178",
+                      "Lip Balm - Grapefruit",
+                      "3",
+                      "4.50",
+                      "4.5"
+                    ]
                   }
                 ]
               }
@@ -66,27 +75,27 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 10512000000
+              "duration": 12580000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 20,
-            "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"Credit Card\"",
+            "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal\"",
             "result": {
               "status": "passed",
-              "duration": 9630000000
+              "duration": 5315000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 21,
-            "name": "I submit the order with donation \"Yes\"",
+            "name": "I submit the order with donation \"No\"",
             "result": {
               "status": "passed",
-              "duration": 2487000000
+              "duration": 2038000000
             }
           },
           {
@@ -96,7 +105,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3528000000
+              "duration": 2568000000
             }
           }
         ]
@@ -116,7 +125,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 6354000000
+              "duration": 12231000000
             }
           },
           {
@@ -126,7 +135,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 5470000000
+              "duration": 8358000000
             }
           },
           {
@@ -150,6 +159,15 @@
                       "26.50",
                       "26.5"
                     ]
+                  },
+                  {
+                    "cells": [
+                      "5178",
+                      "Lip Balm - Grapefruit",
+                      "3",
+                      "4.50",
+                      "4.5"
+                    ]
                   }
                 ]
               }
@@ -159,17 +177,17 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 8547000000
+              "duration": 13004000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 20,
-            "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal\"",
+            "name": "I fill the checkout form with \"Expedited\" and \"Credit Card\"",
             "result": {
               "status": "passed",
-              "duration": 8366000000
+              "duration": 5185000000
             }
           },
           {
@@ -179,7 +197,7 @@
             "name": "I submit the order with donation \"No\"",
             "result": {
               "status": "passed",
-              "duration": 2354000000
+              "duration": 1839000000
             }
           },
           {
@@ -189,7 +207,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3396000000
+              "duration": 2618000000
             }
           }
         ]
@@ -209,7 +227,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 5110000000
+              "duration": 12216000000
             }
           },
           {
@@ -219,7 +237,7 @@
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 6865000000
+              "duration": 5665000000
             }
           },
           {
@@ -243,98 +261,14 @@
                       "26.50",
                       "26.5"
                     ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "When ",
-            "line": 11,
-            "name": "I add the item to the shopping cart",
-            "result": {
-              "status": "passed",
-              "duration": 7765000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "I fill the checkout form with \"Expedited\" and \"Credit Card\"",
-            "result": {
-              "status": "passed",
-              "duration": 8369000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "I submit the order with donation \"No\"",
-            "result": {
-              "status": "passed",
-              "duration": 1979000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
-            "result": {
-              "status": "passed",
-              "duration": 2848000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "place-an-order;place-an-order-using-only-cc,-ach-or-paypal",
-        "keyword": "Scenario",
-        "line": 29,
-        "name": "Place an order using only CC, ACH or PayPal",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am at the Login page",
-            "result": {
-              "status": "passed",
-              "duration": 5379000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
-            "result": {
-              "status": "passed",
-              "duration": 6525000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "sku",
-                      "item",
-                      "quantity",
-                      "price",
-                      "pv"
-                    ]
                   },
                   {
                     "cells": [
-                      "3500",
-                      "Basil Essential Oil",
-                      "2",
-                      "26.50",
-                      "26.5"
+                      "5178",
+                      "Lip Balm - Grapefruit",
+                      "3",
+                      "4.50",
+                      "4.5"
                     ]
                   }
                 ]
@@ -345,7 +279,7 @@
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 8013000000
+              "duration": 12447000000
             }
           },
           {
@@ -355,7 +289,7 @@
             "name": "I fill the checkout form with \"Standard\" and \"ACH\"",
             "result": {
               "status": "passed",
-              "duration": 7661000000
+              "duration": 5152000000
             }
           },
           {
@@ -365,7 +299,7 @@
             "name": "I submit the order with donation \"Yes\"",
             "result": {
               "status": "passed",
-              "duration": 2730000000
+              "duration": 2586000000
             }
           },
           {
@@ -375,7 +309,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3074000000
+              "duration": 2746000000
             }
           }
         ]

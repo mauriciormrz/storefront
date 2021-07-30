@@ -28,7 +28,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 6074000000
+              "duration": 61546000000
             }
           },
           {
@@ -38,7 +38,7 @@
             "name": "I am a new customer with \"Mauricio\", \"Ramirez\", \"3003206240\" and \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 3344000000
+              "duration": 4625000000
             }
           },
           {
@@ -92,7 +92,7 @@
             "name": "I add a new adddress",
             "result": {
               "status": "passed",
-              "duration": 22234000000
+              "duration": 27413000000
             }
           },
           {
@@ -143,7 +143,7 @@
             "name": "I add a new credit card",
             "result": {
               "status": "passed",
-              "duration": 9581000000
+              "duration": 14704000000
             }
           },
           {
@@ -167,34 +167,16 @@
                       "26.50",
                       "26.5"
                     ]
-                  },
-                  {
-                    "cells": [
-                      "5178",
-                      "Lip Balm - Grapefruit",
-                      "3",
-                      "4.50",
-                      "4.5"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "5203",
-                      "Lavender Lip Balm",
-                      "1",
-                      "4.25",
-                      "4.25"
-                    ]
                   }
                 ]
               }
             ],
             "keyword": "When ",
             "line": 24,
-            "name": "I place a one-time first order with \"Lehi, UT Will Call Pick-up\", \"Card ending with\", \"Yes\" and \"1056692\"",
+            "name": "I place a one-time first order with \"Lehi, UT Will Call Pick-up\", \"Credit Card\", \"Yes\" and \"1056692\"",
             "result": {
               "status": "passed",
-              "duration": 34870000000
+              "duration": 23981000000
             }
           },
           {
@@ -204,7 +186,7 @@
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 3316000000
+              "duration": 2928000000
             }
           }
         ]
