@@ -62,6 +62,11 @@ Given('I am at the Become a Member page', () => {
     cy.goToRegisterPage();
 })
 
+Given('I select the country {string} and the language {string}', (country, language) => {
+
+    cy.goToCountryAndLenguagePage(country, language);
+})
+
 
 When('I fill out the account creating form', (dataTable) => {
 

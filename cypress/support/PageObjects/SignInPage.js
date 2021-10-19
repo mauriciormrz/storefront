@@ -21,12 +21,17 @@ class SignInPage {
     }
 
     getAcceptCookiesStringButton() {
-        return "#onetrust-accept-btn-handler";
+        return "button#onetrust-accept-btn-handler";
     }
 
     getErrorMessageText() {
-        return cy.get(':nth-child(1) > .mb-5 > #error-message-signin');
+        return cy.xpath("//div[contains(text(),'Incorrect username or password')]");
     }
+
+    getAcceptCookiesButton() {
+        return cy.get('button#onetrust-accept-btn-handler');
+    }
+    
 
 }
 

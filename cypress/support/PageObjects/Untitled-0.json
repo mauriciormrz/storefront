@@ -1,0 +1,37 @@
+{
+    "UnbatchedShipmentsCount": 3148,
+    "UnacknowledgedShipmentsCount": 1000,
+    "ShipmentsToShip": [
+        {
+            "ShipmentId": 93743507080421,
+            "CustomerEmail": "imlivinhealthy@livinhealthy.info",
+            "CustId": 1929631,
+            "ShipPhone": "4042711332",
+            "ShipName": "CHRISTINA LUKE",
+            "ShipAddr1": "72 BROOKEWOOD LN",
+            "ShipAddr2": null,
+            "ShipAddr3": null,
+            "ShipAddr4": null,
+            "ShipCity": "DOUGLASVILLE",
+            "ShipState": "GA",
+            "ShipZip": "30134-6066",
+            "ShipCountryIso": "US",
+            "ShipMethod": "MAIL",
+            "ShipCarrier": null,
+            "BatchId": "SFP20210818161725",
+            "ContractDate": "2021-07-28T00:00:00",
+            "LineItems": [
+                {
+                    "LineNumber": 1,
+                    "OrderId": "153354190",
+                    "PartNumber": "3500",
+                    "Quantity": 1,
+                    "Name": "BASIL, 15ml",
+                    "LineType": "S",
+                    "ParentKitItem": "0",
+                    "Remarks": null
+                }
+            ]
+}
+]
+}

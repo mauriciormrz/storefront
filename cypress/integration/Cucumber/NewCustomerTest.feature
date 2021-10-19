@@ -22,10 +22,10 @@ Feature: Place an order for the first time with a new customer
       | YL         | Mastercard | 5500005555555559 | 01    | 2023 | 111 | No              | Yes             |
 
     When I place a one-time first order with "<shipping_method>", "<payment_method>", "<donation>" and "<referral_id>"
-      | sku  | item                | quantity | price | pv   |
-      | 3500 | Basil Essential Oil | 2        | 26.50 | 26.5 |
-    #| 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
-    #| 5203 | Lavender Lip Balm     | 1        | 4.25  | 4.25 |
+      | sku  | item                  | quantity | price | pv   |
+      | 3500 | Basil Essential Oil   | 2        | 26.50 | 26.5 |
+      | 5178 | Lip Balm - Grapefruit | 3        | 4.50  | 4.5  |
+      | 5203 | Lavender Lip Balm     | 1        | 4.25  | 4.25 |
 
 
     Then I should see the order confirmation "THANK YOU FOR SHOPPING YOUNG LIVING."

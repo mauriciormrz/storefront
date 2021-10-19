@@ -15,7 +15,7 @@
   "author": "Mauricio Ramirez",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.0.0",
+    "cypress": "^8.6.0",
     "cypress-cucumber-preprocessor": "^4.1.4",
     "cypress-plugin-tab": "^1.0.5",
     "cypress-xpath": "^1.6.2",

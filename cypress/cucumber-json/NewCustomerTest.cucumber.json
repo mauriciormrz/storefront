@@ -28,7 +28,7 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 61546000000
+              "duration": 6029000000
             }
           },
           {
@@ -37,8 +37,9 @@
             "line": 12,
             "name": "I am a new customer with \"Mauricio\", \"Ramirez\", \"3003206240\" and \"Password1\"",
             "result": {
-              "status": "passed",
-              "duration": 4625000000
+              "status": "failed",
+              "duration": 15161000000,
+              "error_message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `#createEmail`, but never found it.\n    at NewAccountPage.getEmailText (https://clone.youngliving.com/__cypress/tests?p=cypress/support/index.js:350:17)\n    at Context.eval (https://clone.youngliving.com/__cypress/tests?p=cypress/support/index.js:798:18)"
             }
           },
           {
@@ -91,8 +92,7 @@
             "line": 14,
             "name": "I add a new adddress",
             "result": {
-              "status": "passed",
-              "duration": 27413000000
+              "status": "skipped"
             }
           },
           {
@@ -142,8 +142,7 @@
             "line": 19,
             "name": "I add a new credit card",
             "result": {
-              "status": "passed",
-              "duration": 14704000000
+              "status": "skipped"
             }
           },
           {
@@ -167,6 +166,24 @@
                       "26.50",
                       "26.5"
                     ]
+                  },
+                  {
+                    "cells": [
+                      "5178",
+                      "Lip Balm - Grapefruit",
+                      "3",
+                      "4.50",
+                      "4.5"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "5203",
+                      "Lavender Lip Balm",
+                      "1",
+                      "4.25",
+                      "4.25"
+                    ]
                   }
                 ]
               }
@@ -175,8 +192,7 @@
             "line": 24,
             "name": "I place a one-time first order with \"Lehi, UT Will Call Pick-up\", \"Credit Card\", \"Yes\" and \"1056692\"",
             "result": {
-              "status": "passed",
-              "duration": 23981000000
+              "status": "skipped"
             }
           },
           {
@@ -185,8 +201,7 @@
             "line": 31,
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
-              "status": "passed",
-              "duration": 2928000000
+              "status": "skipped"
             }
           }
         ]

@@ -11,210 +11,6 @@
       {
         "id": "place-an-order;place-an-order-using-only-cc,-ach-or-paypal",
         "keyword": "Scenario",
-        "line": 26,
-        "name": "Place an order using only CC, ACH or PayPal",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am at the Login page",
-            "result": {
-              "status": "passed",
-              "duration": 15289000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
-            "result": {
-              "status": "passed",
-              "duration": 7183000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "sku",
-                      "item",
-                      "quantity",
-                      "price",
-                      "pv"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "3500",
-                      "Basil Essential Oil",
-                      "2",
-                      "26.50",
-                      "26.5"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "5178",
-                      "Lip Balm - Grapefruit",
-                      "3",
-                      "4.50",
-                      "4.5"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "When ",
-            "line": 11,
-            "name": "I add the item to the shopping cart",
-            "result": {
-              "status": "passed",
-              "duration": 12580000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "I fill the checkout form with \"Lehi, UT Will Call Pick-up\" and \"PayPal\"",
-            "result": {
-              "status": "passed",
-              "duration": 5315000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "I submit the order with donation \"No\"",
-            "result": {
-              "status": "passed",
-              "duration": 2038000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
-            "result": {
-              "status": "passed",
-              "duration": 2568000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "place-an-order;place-an-order-using-only-cc,-ach-or-paypal",
-        "keyword": "Scenario",
-        "line": 27,
-        "name": "Place an order using only CC, ACH or PayPal",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 7,
-            "name": "I am at the Login page",
-            "result": {
-              "status": "passed",
-              "duration": 12231000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
-            "result": {
-              "status": "passed",
-              "duration": 8358000000
-            }
-          },
-          {
-            "arguments": [
-              {
-                "rows": [
-                  {
-                    "cells": [
-                      "sku",
-                      "item",
-                      "quantity",
-                      "price",
-                      "pv"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "3500",
-                      "Basil Essential Oil",
-                      "2",
-                      "26.50",
-                      "26.5"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "5178",
-                      "Lip Balm - Grapefruit",
-                      "3",
-                      "4.50",
-                      "4.5"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "keyword": "When ",
-            "line": 11,
-            "name": "I add the item to the shopping cart",
-            "result": {
-              "status": "passed",
-              "duration": 13004000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "I fill the checkout form with \"Expedited\" and \"Credit Card\"",
-            "result": {
-              "status": "passed",
-              "duration": 5185000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "I submit the order with donation \"No\"",
-            "result": {
-              "status": "passed",
-              "duration": 1839000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
-            "result": {
-              "status": "passed",
-              "duration": 2618000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "place-an-order;place-an-order-using-only-cc,-ach-or-paypal",
-        "keyword": "Scenario",
         "line": 28,
         "name": "Place an order using only CC, ACH or PayPal",
         "tags": [],
@@ -227,17 +23,17 @@
             "name": "I am at the Login page",
             "result": {
               "status": "passed",
-              "duration": 12216000000
+              "duration": 11223000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 8,
+            "line": 9,
             "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
             "result": {
               "status": "passed",
-              "duration": 5665000000
+              "duration": 5872000000
             }
           },
           {
@@ -255,61 +51,238 @@
                   },
                   {
                     "cells": [
-                      "3500",
-                      "Basil Essential Oil",
+                      "5203",
+                      "Lavender Lip Balm",
                       "2",
-                      "26.50",
-                      "26.5"
-                    ]
-                  },
-                  {
-                    "cells": [
-                      "5178",
-                      "Lip Balm - Grapefruit",
-                      "3",
-                      "4.50",
-                      "4.5"
+                      "4.25",
+                      "4.25"
                     ]
                   }
                 ]
               }
             ],
             "keyword": "When ",
-            "line": 11,
+            "line": 13,
             "name": "I add the item to the shopping cart",
             "result": {
               "status": "passed",
-              "duration": 12447000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 20,
-            "name": "I fill the checkout form with \"Standard\" and \"ACH\"",
-            "result": {
-              "status": "passed",
-              "duration": 5152000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "I submit the order with donation \"Yes\"",
-            "result": {
-              "status": "passed",
-              "duration": 2586000000
+              "duration": 7676000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 22,
+            "name": "I fill the checkout form with \"Lehi, UT Will Call\" and \"ACH\"",
+            "result": {
+              "status": "passed",
+              "duration": 6441000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "I submit the order with donation \"No\"",
+            "result": {
+              "status": "passed",
+              "duration": 1737000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
             "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
             "result": {
               "status": "passed",
-              "duration": 2746000000
+              "duration": 1529000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "place-an-order;place-an-order-using-only-cc,-ach-or-paypal",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Place an order using only CC, ACH or PayPal",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 7748000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 3680000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "sku",
+                      "item",
+                      "quantity",
+                      "price",
+                      "pv"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "5203",
+                      "Lavender Lip Balm",
+                      "2",
+                      "4.25",
+                      "4.25"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I add the item to the shopping cart",
+            "result": {
+              "status": "passed",
+              "duration": 7291000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I fill the checkout form with \"Standard\" and \"ACH\"",
+            "result": {
+              "status": "passed",
+              "duration": 6314000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "I submit the order with donation \"No\"",
+            "result": {
+              "status": "passed",
+              "duration": 1532000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
+            "result": {
+              "status": "passed",
+              "duration": 1503000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "place-an-order;place-an-order-using-only-cc,-ach-or-paypal",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "Place an order using only CC, ACH or PayPal",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am at the Login page",
+            "result": {
+              "status": "passed",
+              "duration": 24474000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I log in to the Storefront with user \"5010\"  and password \"Password1\"",
+            "result": {
+              "status": "passed",
+              "duration": 3891000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "sku",
+                      "item",
+                      "quantity",
+                      "price",
+                      "pv"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "5203",
+                      "Lavender Lip Balm",
+                      "2",
+                      "4.25",
+                      "4.25"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I add the item to the shopping cart",
+            "result": {
+              "status": "passed",
+              "duration": 7505000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I fill the checkout form with \"Expedited\" and \"ACH\"",
+            "result": {
+              "status": "passed",
+              "duration": 6592000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "I submit the order with donation \"No\"",
+            "result": {
+              "status": "passed",
+              "duration": 1678000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I should see the order confirmation \"THANK YOU FOR SHOPPING YOUNG LIVING.\"",
+            "result": {
+              "status": "passed",
+              "duration": 1544000000
             }
           }
         ]

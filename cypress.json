@@ -1,16 +1,18 @@
 {
-  "pageLoadTimeout": 300000,
+  "pageLoadTimeout": 30000,
   "scrollBehavior": false,
-  "defaultCommandTimeout": 30000,
+  "defaultCommandTimeout": 15000,
   "env": {
-    "url": "https://clone.youngliving.com"
+    "url": "https://clone.youngliving.com",
+    "username": "yleo",
+    "password": "I know what 2 do"
   },
   "viewportWidth": 1280,
   "viewportHeight": 1280,
   "testFiles": "**/*.feature",
   "retries": {
-    "runMode": 2,
-    "openMode": 2
+    "runMode": 1,
+    "openMode": 1
   },
   "projectId": "q8dfqr"
 }

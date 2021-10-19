@@ -39,7 +39,9 @@ import NewAccountPage from "./PageObjects/NewAccountPage";
 import AddressBookPage from './PageObjects/AddressBookPage';
 import PaymentMethodPage from './PageObjects/PaymentMethodPage';
 import OrderConfirmationPage from './PageObjects/OrderConfirmationPage';
+import CountryAndLanguagePage from './PageObjects/CountryAndLanguagePage';
 
+// yleo/I know what 2 do
 
 
 const homePage = new HomePage();
@@ -52,16 +54,26 @@ const newAccountPage = new NewAccountPage();
 const addressBookPage = new AddressBookPage();
 const paymentMethodPage = new PaymentMethodPage();
 const orderConfirmationPage = new OrderConfirmationPage();
+const countryAndLanguagePage = new CountryAndLanguagePage();
 
 
 
 Cypress.Commands.add('goToLoginPage', () => {
 
-    cy.visit(Cypress.env('url') + "/us/en/");
-    homePage.getDropDownLink('Sign In').click();
+
+    cy.visit(Cypress.env('url') + "/us/en/", {
+        auth: {
+            username: Cypress.env('username'),
+            password: Cypress.env('password')
+        }
+    })
+
+    homePage.getDropDownLink('Sign-In').click();
 
     cy.clickIfElemExists(signInPage.getAcceptCookiesStringButton());
 })
+
+
 
 Cypress.Commands.add('clickIfElemExists', (elem) => {
 
@@ -73,11 +85,24 @@ Cypress.Commands.add('clickIfElemExists', (elem) => {
     });
 })
 
+Cypress.Commands.add('checkIfElemExists', (elem) => {
+
+    cy.wait(1000);
+    cy.get('body').then($body => {
+        if ($body.find(elem).length > 0) {
+            cy.get(elem).should('be.visible').check({ force: true }).should('be.checked')
+        }
+    });
+})
+
+
 Cypress.Commands.add('welComeHomePage', () => {
 
     homePage.getDropDownLink('my Account').trigger('mouseover').wait(1000);
     myAccountMenu.getWelcomeText().should('contain', 'Welcome').wait(1000);
 })
+
+
 
 Cypress.Commands.add('goToRegisterPage', () => {
 
@@ -87,8 +112,26 @@ Cypress.Commands.add('goToRegisterPage', () => {
     //    cy.visit(currentURL + '%26initial_screen%3Dsignup');
     //});
     signInPage.getCreateAccountButton().click();
-    newAccountPage.getCreateAccountTitleText().should('have.text', 'Create Your Account');
+    //newAccountPage.getCreateAccountTitleText().should('have.text', 'Create Your Account');
 })
+
+Cypress.Commands.add('goToCountryAndLenguagePage', (country, language) => {
+
+    //countryAndLanguagePage.getCountrySelect().should('be.visible').select("country");
+    //cy.get('#country').select('US').eq(0); 
+    //cy.get('#country').select('US').first();
+    //countryAndLanguagePage.getCountrySelect().should('be.visible').select('US').first();
+
+    countryAndLanguagePage.getContinueButton().click();
+
+    //cy.get('#country')
+    //.find('US')
+    //.then($elm => $elm.get(1).setAttribute('selected', "selected"))
+    //.parent()
+    //.trigger('change')
+})
+
+
 
 Cypress.Commands.add('fillOutTheAccountCreationForm', (first_name, last_name, phone_number, password) => {
 
@@ -114,19 +157,25 @@ Cypress.Commands.add('fillOutTheAccountCreationForm', (first_name, last_name, ph
     newAccountPage.getPrivacyPolicyCheckBox().check({ force: true }).should('be.checked');
 })
 
+
+
 Cypress.Commands.add('submitTheAccountCreationForm', () => {
 
     newAccountPage.getCreateAccountButton().click();
 })
 
+
+
 Cypress.Commands.add('loginStorefront', (user, password) => {
 
     signInPage.getUserNameText().type(user);
-    signInPage.getPasswordText().type(password);
+    signInPage.getPasswordText().should('be.enabled').type(password);
     signInPage.getLoginButton().click();
 
     homePage.getDropDownLink('my Account').should('be.visible');
 })
+
+
 
 Cypress.Commands.add('addItemToShoppingCart', ({ sku, item, quantity }) => {
 
@@ -141,6 +190,8 @@ Cypress.Commands.add('addItemToShoppingCart', ({ sku, item, quantity }) => {
     productPage.getViewCartButton().click();
 })
 
+
+
 Cypress.Commands.add('addingItemsToCart', (dataTable) => {
 
     dataTable.hashes().forEach((elem) => {
@@ -148,6 +199,8 @@ Cypress.Commands.add('addingItemsToCart', (dataTable) => {
     });
     viewCartpage.getCheckOutButton().click();
 })
+
+
 
 Cypress.Commands.add('addNewAddress', ({ first_name, last_name, address, city, state, country, zipcode, phone_number, default_address }) => {
 
@@ -171,6 +224,7 @@ Cypress.Commands.add('addNewAddress', ({ first_name, last_name, address, city, s
 })
 
 
+
 Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, month, year, cvv, default_payment, billing_addres }) => {
 
     paymentMethodPage.getAddNewPaymentMethodTypeSelect().should('be.visible').select('CreditCard');
@@ -192,8 +246,8 @@ Cypress.Commands.add('addNewCreditCard', ({ first_name, last_name, card_number, 
     //}
 
     paymentMethodPage.getSaveButton().click();
-
 })
+
 
 
 Cypress.Commands.add('toastMessage', (msg) => {
@@ -201,6 +255,7 @@ Cypress.Commands.add('toastMessage', (msg) => {
     cy.xpath("//div[contains(text(),'" + msg + "')]").should('be.visible');
     cy.get('#toastButton').click();
 })
+
 
 
 Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method, referral_id) => {
@@ -238,22 +293,27 @@ Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method,
     }
 
     checkoutPage.getPaymentMethodRadio(payment_method).check({ force: true }).should('be.checked');
-    checkoutPage.getPaymentMethodContinueButton().should('be.visible').click();
+    checkoutPage.getPaymentMethodContinueButton().should('be.enabled').click({ force: true });
 
 })
+
+
 
 Cypress.Commands.add('submitOrder', (donation) => {
 
 
     if (donation.toUpperCase() == "YES") {
-        checkoutPage.getDonationCheckBox().check({ force: true }).should('be.checked')
+        checkoutPage.getDonationCheckBox().check({ force: true }).should('be.checked');
     }
     else {
         checkoutPage.getDonationCheckBox().uncheck({ force: true });
     }
 
+    //cy.checkIfElemExists(checkoutPage.getBrandPartnerStringCheckBox());
+    checkoutPage.getBrandPartnerCheckBox().check({ force: true }).should('be.checked') //No en EXT5
     checkoutPage.getSubmitOrderButton().click();
 })
+
 
 Cypress.Commands.add('seeTheOrderConfirmation', (congrats_message) => {
 
@@ -268,16 +328,6 @@ Cypress.Commands.add('seeTheOrderConfirmation', (congrats_message) => {
 })
 
 
-//Cypress.Commands.add('ifExists', (selector) => {
-//    cy.document().then(($document) => {
-//        const documentResult = $document.querySelectorAll(selector)
-//        cy.log(documentResult)
-//        if (documentResult.length) {
-//            cy.log("it exists, do something")
-//            return ("it exists, do something")
-//        }
-//    })
-//})
 
 /*
 Cypress + JavaScript + Node.

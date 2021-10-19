@@ -1,7 +1,8 @@
 class HomePage {
 
     getDropDownLink(option) {
-
+        
+        cy.wait(1000);
         return cy.xpath("//p[contains(text(),'" + option + "')]");
     }
 

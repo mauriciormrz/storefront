@@ -38,7 +38,9 @@ class CheckOutPage {
 
     getPaymentMethodContinueButton() {
 
-        return cy.get('button[type="submit"].px-5.py-2.add-payment-continue.list-specific-continue.text-uppercase.btn.btn-primary');
+        cy.wait(1000);
+        //return cy.get('button[type="submit"].px-5.py-2.add-payment-continue.list-specific-continue.text-uppercase.btn.btn-primary');
+        return cy.get('#payment').contains('Continue');
     }
 
 
@@ -47,6 +49,17 @@ class CheckOutPage {
         return cy.get('#donationCheckbox_1');
     }
 
+    getBrandPartnerStringCheckBox() {
+
+        return "input#brandPartnerCheckbox";
+    }
+
+    getBrandPartnerCheckBox() {
+
+        return cy.get('#brandPartnerCheckbox');
+    }
+
+
     getregisterAgreementCheckbox() {
 
         return cy.get('#registerAgreementCheckbox');
@@ -54,6 +67,7 @@ class CheckOutPage {
 
     getSubmitOrderButton() {
 
+        cy.wait(1000);
         //return cy.get('button[data-testid="qa-submit-order"][type="button"].w-100.submit-order-button.case-uppercase.btn-primary');
         return cy.get('[data-testid=qa-submit-order').not('.disabled');
     }
