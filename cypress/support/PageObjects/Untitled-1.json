@@ -1,0 +1,28 @@
+{
+  "MsgDateTime": "2021-07-28T00:00:00",
+  "Sender": "1002",
+  "Receiver": "1001",
+  "ShipmentDetails": [{
+    "ShipmentId": 93743507080421,
+    "ShipMethod": "MAIL",
+    "ShipCarrier": "",
+    "TotalWeight": 2,
+    "FreightCharges": 12,
+    "QtyPackages": 1,
+    "WeightUoM": "LB",
+    "CurrCode": "USD",
+    "ItemDetails": [
+      {
+        "OrderId": 153354190,
+        "OrderLineNumber": 1,
+        "PartNumber": "3500",
+        "TrackingNo": "TN153354190",
+        "QtyOrdered": 1,
+        "QtyShipped": 1,
+        "ReasonCode": "",
+        "ShipDateTime": "2021-07-28T00:00:00",
+        "LotNumber": "113743"
+      }
+    ]
+  }]
+}

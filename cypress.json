@@ -1,0 +1,18 @@
+{
+  "pageLoadTimeout": 30000,
+  "scrollBehavior": false,
+  "defaultCommandTimeout": 15000,
+  "env": {
+    "url": "https://clone.youngliving.com",
+    "username": "yleo",
+    "password": "I know what 2 do"
+  },
+  "viewportWidth": 1280,
+  "viewportHeight": 1280,
+  "testFiles": "**/*.feature",
+  "retries": {
+    "runMode": 1,
+    "openMode": 0
+  },
+  "projectId": "q8dfqr"
+}
