@@ -1,15 +1,13 @@
 class CheckOutPage {
 
 
-    getShippingAddressChangeButton() {
+    //getShippingAddressChangeButton() {
+    //    return cy.get('[data-testid="qa-ship-title"] > .px-0 > .checkout-change-button');
+    //}
 
-        return cy.get('[data-testid="qa-ship-title"] > .px-0 > .checkout-change-button');
-    }
-
-    getShippingAddressContinueButton() {
-        
-        return cy.get('[data-testid="qa-ship-continue"]')
-    }
+    //getShippingAddressContinueButton() {     
+    //    return cy.get('[data-testid="qa-ship-continue"]')
+    //}
 
     getShippingMethodChangeButton(){
         //cy.wait(3001);

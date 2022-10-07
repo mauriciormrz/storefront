@@ -27,6 +27,8 @@ Given('I am at the Login page', () => {
 
 When('I fill in the account email field with the value {string}', (user) => {
 
+    //signInPage.getUserNameText().type(user);
+
     signInPage.getUserNameText().type(user);
     signInPage.getContinueButton().click();
 })

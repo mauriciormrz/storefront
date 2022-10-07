@@ -17,13 +17,13 @@ Feature: Place an order
         #| 4710 | Ningxia Red Combo Pack | 3        | 158.0 | 158.0 | Revisar: Inventary no available
 
         And I checkout the order with donation "<donation>"
-        #Then I fill the checkout form with "<shipping_method>" and "<payment_method>"
+        Then I fill the checkout form with "<shipping_method>" and "<payment_method>"
         #And I should see the order confirmation "THANK YOU FOR SHOPPING YOUNG LIVING."
 
         Examples:
             | shipping_method | payment_method | donation |
-            #| Economy         | Credit Card    | Yes      |
-            | Standard        | Credit Card    | No       |
+            | Economy         | Credit Card    | Yes      |
+            | Standard        | ACH            | No       |
 #| Expedited                  | PayPal         | Yes      |
 #| Spanish Fork, UT Will Call | ACH            | No       |
 #| Lehi, UT Will Call         | ACH            | Yes      |

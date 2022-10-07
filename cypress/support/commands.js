@@ -74,7 +74,6 @@ Cypress.Commands.add('goToLoginPage', () => {
 
 Cypress.Commands.add('clickIfElemExists', (elem) => {
 
-    //cy.wait(1000);
     cy.get('body').then($body => {
         if ($body.find(elem).length > 0) {
             cy.get(elem).should('be.visible').click();
@@ -85,7 +84,7 @@ Cypress.Commands.add('clickIfElemExists', (elem) => {
 
 Cypress.Commands.add('checkIfElemExists', (elem) => {
 
-    //cy.wait(1000);
+
     cy.get('body').then($body => {
         if ($body.find(elem).length > 0) {
             cy.get(elem).should('be.visible').check({ force: true }).should('be.checked')
@@ -202,7 +201,7 @@ Cypress.Commands.add('addItemToShoppingCart', ({ sku, item, quantity }) => {
     productPage.getProductNameText().should('contain', item);
     productPage.getQuantityCtrl().clear().type(quantity);
     productPage.getAddCartButton().click();
-    
+
     cy.toastMessage('Added to Cart Successfully');
     productPage.getViewCartButton().click();
 })
@@ -274,16 +273,16 @@ Cypress.Commands.add('toastMessage', (msg) => {
 
 Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method, referral_id) => {
 
-    //(3001);
+    //cy.wait(3001);
     //checkoutPage.getShippingAddressChangeButton().click();
     //checkoutPage.getShippingAddressContinueButton().click();
+    //cy.clearCookies();
 
-    //checkoutPage.getShippingMethodChangeButton().should('be.visible').click()
-    //checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
+    checkoutPage.getShippingMethodChangeButton().should('be.visible').click()
+    checkoutPage.getShippingMethodRadio(shipping_method).check({ force: true }).should('be.checked')
+    checkoutPage.getShippingMethodContinueButton().click()
 
-    //checkoutPage.getShippingMethodContinueButton().click()
     //checkoutPage.getPaymentMethodChangeButton().should('be.visible').click();
-
     //checkoutPage.getStoreCreditContinueButton().click()
 
     /*
@@ -295,7 +294,7 @@ Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method,
 
         checkoutPage.getregisterAgreementCheckbox().check({ force: true }).should('be.checked');
     }
-
+    */
     switch (payment_method) {
 
         case 'Credit Card':
@@ -310,8 +309,8 @@ Cypress.Commands.add('fillOutTheCheckoutForm', (shipping_method, payment_method,
     }
 
     checkoutPage.getPaymentMethodRadio(payment_method).check({ force: true }).should('be.checked');
-    checkoutPage.getPaymentMethodContinueButton().should('be.enabled').click({ force: true });
-    */
+    //checkoutPage.getPaymentMethodContinueButton().should('be.enabled').click({ force: true });
+    
 })
 
 
@@ -326,7 +325,6 @@ Cypress.Commands.add('checkoutOrder', (donation) => {
         cy.log(donation);
         checkoutPage.getDonationCheckBox().uncheck({ force: true });
     }
-
     viewCartpage.getCheckOutButton().click();
     //cy.checkIfElemExists(checkoutPage.getBrandPartnerStringCheckBox());
     //checkoutPage.getBrandPartnerCheckBox().check({ force: true }).should('be.checked') //No en EXT5
